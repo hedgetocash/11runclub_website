@@ -37,6 +37,33 @@ export default function Footer() {
         <span>© 2026 11RUNCLUB — SOLOTHURN</span>
         <span>SUPPORTED BY SOL-ID ATHLETES WORLD · HYDRATED BY PEAQ HYDRATION</span>
         <div style={{ display: 'flex', gap: 24 }}>
+          <a
+            href="https://instagram.com/11.runclub"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: 'var(--ash)', textDecoration: 'none' }}
+            className="hover:text-[var(--chalk)] transition-colors"
+          >
+            @11.RUNCLUB
+          </a>
+          <a
+            href="https://www.strava.com/clubs/11runclub"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: 'var(--ash)', textDecoration: 'none' }}
+            className="hover:text-[var(--chalk)] transition-colors"
+          >
+            STRAVA
+          </a>
+          <a
+            href="https://chat.whatsapp.com/11runclub"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: 'var(--ash)', textDecoration: 'none' }}
+            className="hover:text-[var(--chalk)] transition-colors"
+          >
+            WHATSAPP
+          </a>
           <Link
             href="/partner"
             style={{ color: 'var(--ash)', textDecoration: 'none' }}

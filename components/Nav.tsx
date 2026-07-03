@@ -78,6 +78,14 @@ export default function Nav() {
         >
           Partner
         </Link>
+        <a
+          href="https://instagram.com/11.runclub"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="no-underline text-[var(--black)] text-sm font-semibold tracking-[0.04em] hover:text-[var(--red)] transition-colors hidden md:block"
+        >
+          @11.runclub
+        </a>
         <Link
           href={isHome ? '#join' : '/#join'}
           className="btn btn--solid"
