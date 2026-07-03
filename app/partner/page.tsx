@@ -2,6 +2,12 @@
 
 import { useEffect, useRef } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
+import SolidImg from '../../reference/partner-solid.jpg'
+import PeaqImg from '../../reference/partner-peaq.jpg'
+import PeaqBottlesImg from '../../reference/peaq-bottles.jpg'
+import FilandiaImg from '../../reference/partner-filandia.jpg'
+import SteinerImg from '../../reference/partner-steiner.jpg'
 
 /* ─── Scroll Reveal ──────────────────────────────────────────────────────────── */
 function Reveal({
@@ -547,7 +553,24 @@ export default function PartnerPage() {
                 alignItems: 'flex-start',
               }}
             >
-              <div style={{ fontSize: 28, flexShrink: 0 }}>💧</div>
+              <div
+                style={{
+                  position: 'relative',
+                  width: 64,
+                  aspectRatio: '3 / 4',
+                  borderRadius: 10,
+                  overflow: 'hidden',
+                  flexShrink: 0,
+                }}
+              >
+                <Image
+                  src={PeaqBottlesImg}
+                  alt="peaq hydration Getränke"
+                  fill
+                  sizes="64px"
+                  style={{ objectFit: 'cover' }}
+                />
+              </div>
               <div>
                 <div
                   style={{
@@ -689,6 +712,7 @@ export default function PartnerPage() {
               desc: 'Unser Heimathafen. Das SOL-ID am Klosterplatz 6 ist Start und Ziel jedes Tuesday Runs.',
               tag: 'HAUPTPARTNER',
               color: 'var(--red)',
+              img: SolidImg,
             },
             {
               name: 'peaq hydration',
@@ -696,71 +720,165 @@ export default function PartnerPage() {
               desc: 'Hydrated by peaq hydration. Der Bereich Getränke ist fest vergeben.',
               tag: 'HYDRATION · VERGEBEN',
               color: 'var(--cobalt)',
+              img: PeaqImg,
             },
-          ].map(({ name, role, desc, tag, color }, i) => (
+          ].map(({ name, role, desc, tag, color, img }, i) => (
             <Reveal key={name} delay={i * 80}>
               <div
                 style={{
                   border: '1px solid rgba(244,241,235,0.15)',
                   borderRadius: 20,
-                  padding: 'clamp(24px,3vw,36px)',
-                  position: 'relative',
                   overflow: 'hidden',
+                  position: 'relative',
                 }}
               >
+                <div style={{ position: 'relative', aspectRatio: '4 / 5' }}>
+                  <Image
+                    src={img}
+                    alt={`${name} × 11RUNCLUB`}
+                    fill
+                    sizes="(max-width: 640px) 100vw, 400px"
+                    style={{ objectFit: 'cover' }}
+                  />
+                </div>
+                <div style={{ padding: 'clamp(24px,3vw,36px)', position: 'relative' }}>
+                  <div
+                    style={{
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      height: 3,
+                      background: color,
+                    }}
+                  />
+                  <div
+                    style={{
+                      fontFamily: 'var(--font-ibm-plex-mono)',
+                      fontSize: 10,
+                      letterSpacing: '0.2em',
+                      color,
+                      marginBottom: 16,
+                      marginTop: 8,
+                    }}
+                  >
+                    {tag}
+                  </div>
+                  <h3
+                    style={{
+                      fontFamily: 'var(--font-anton)',
+                      fontSize: 'clamp(20px,2vw,28px)',
+                      textTransform: 'uppercase',
+                      marginBottom: 6,
+                    }}
+                  >
+                    {name}
+                  </h3>
+                  <div
+                    style={{
+                      fontFamily: 'var(--font-ibm-plex-mono)',
+                      fontSize: 12,
+                      letterSpacing: '0.1em',
+                      color: 'var(--ash)',
+                      marginBottom: 14,
+                    }}
+                  >
+                    {role}
+                  </div>
+                  <p
+                    style={{
+                      fontSize: 14,
+                      lineHeight: 1.65,
+                      color: 'rgba(244,241,235,0.65)',
+                      fontFamily: 'var(--font-archivo)',
+                    }}
+                  >
+                    {desc}
+                  </p>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      {/* ── Ehemalige Partner ── */}
+      <section
+        style={{
+          background: 'var(--chalk)',
+          padding: 'clamp(60px,8vw,110px) clamp(20px,4vw,56px)',
+        }}
+      >
+        <Reveal>
+          <div className="kicker">Danke für die Zusammenarbeit</div>
+        </Reveal>
+        <Reveal delay={60}>
+          <h2
+            style={{
+              fontFamily: 'var(--font-anton)',
+              fontSize: 'clamp(36px,5vw,72px)',
+              lineHeight: 0.95,
+              textTransform: 'uppercase',
+              marginBottom: 16,
+            }}
+          >
+            Ehemalige Partner.
+          </h2>
+        </Reveal>
+        <Reveal delay={100}>
+          <p style={{ maxWidth: 560, fontSize: 15, lineHeight: 1.65, color: '#555', marginBottom: 40 }}>
+            Café Filandia und Steiner Backtradition haben unsere Longruns mit
+            frischem Gebäck begleitet — für die tolle einmalige Zusammenarbeit sagen wir danke.
+          </p>
+        </Reveal>
+
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+            gap: 20,
+            maxWidth: 700,
+          }}
+        >
+          {[
+            { name: 'Café Filandia', img: FilandiaImg },
+            { name: 'Steiner Backtradition', img: SteinerImg },
+          ].map(({ name, img }, i) => (
+            <Reveal key={name} delay={i * 80}>
+              <div
+                style={{
+                  border: '1.5px solid rgba(13,12,11,0.1)',
+                  borderRadius: 20,
+                  overflow: 'hidden',
+                  position: 'relative',
+                }}
+              >
+                <div style={{ position: 'relative', aspectRatio: '9 / 16' }}>
+                  <Image
+                    src={img}
+                    alt={`${name} × 11RUNCLUB — vergangener Longrun-Partner`}
+                    fill
+                    sizes="(max-width: 640px) 100vw, 340px"
+                    style={{ objectFit: 'cover' }}
+                  />
+                </div>
                 <div
                   style={{
                     position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    height: 3,
-                    background: color,
-                  }}
-                />
-                <div
-                  style={{
+                    top: 16,
+                    left: 16,
                     fontFamily: 'var(--font-ibm-plex-mono)',
                     fontSize: 10,
-                    letterSpacing: '0.2em',
-                    color,
-                    marginBottom: 16,
-                    marginTop: 8,
+                    letterSpacing: '0.15em',
+                    padding: '5px 12px',
+                    borderRadius: 999,
+                    background: 'rgba(13,12,11,0.55)',
+                    color: 'var(--chalk)',
+                    backdropFilter: 'blur(4px)',
                   }}
                 >
-                  {tag}
+                  EHEMALIGER PARTNER
                 </div>
-                <h3
-                  style={{
-                    fontFamily: 'var(--font-anton)',
-                    fontSize: 'clamp(20px,2vw,28px)',
-                    textTransform: 'uppercase',
-                    marginBottom: 6,
-                  }}
-                >
-                  {name}
-                </h3>
-                <div
-                  style={{
-                    fontFamily: 'var(--font-ibm-plex-mono)',
-                    fontSize: 12,
-                    letterSpacing: '0.1em',
-                    color: 'var(--ash)',
-                    marginBottom: 14,
-                  }}
-                >
-                  {role}
-                </div>
-                <p
-                  style={{
-                    fontSize: 14,
-                    lineHeight: 1.65,
-                    color: 'rgba(244,241,235,0.65)',
-                    fontFamily: 'var(--font-archivo)',
-                  }}
-                >
-                  {desc}
-                </p>
               </div>
             </Reveal>
           ))}

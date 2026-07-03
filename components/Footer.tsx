@@ -1,8 +1,27 @@
 import Link from 'next/link'
+import Image from 'next/image'
+import LogoIcon from '../reference/logo-icon-square.jpg'
 
 export default function Footer() {
   return (
     <footer style={{ background: 'var(--black)', color: 'var(--chalk)', padding: '70px clamp(20px,4vw,56px) 30px' }}>
+      {/* Logo badge */}
+      <span
+        style={{
+          width: 48,
+          height: 48,
+          borderRadius: '50%',
+          background: 'var(--coral)',
+          display: 'block',
+          position: 'relative',
+          overflow: 'hidden',
+          transform: 'rotate(-6deg)',
+          marginBottom: 24,
+        }}
+      >
+        <Image src={LogoIcon} alt="11RUNCLUB Logo" fill sizes="48px" style={{ objectFit: 'cover' }} />
+      </span>
+
       {/* Wordmark */}
       <div
         style={{

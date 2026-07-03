@@ -1,7 +1,9 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
+import LogoIcon from '../reference/logo-icon-square.jpg'
 
 export default function Nav() {
   const pathname = usePathname()
@@ -17,17 +19,14 @@ export default function Nav() {
             height: 44,
             borderRadius: '50%',
             background: 'var(--coral)',
-            display: 'grid',
-            placeItems: 'center',
-            fontFamily: 'var(--font-anton)',
-            color: 'var(--cobalt)',
-            fontSize: 19,
-            letterSpacing: '0.02em',
+            display: 'block',
+            position: 'relative',
+            overflow: 'hidden',
             transform: 'rotate(-6deg)',
             flexShrink: 0,
           }}
         >
-          11
+          <Image src={LogoIcon} alt="11RUNCLUB Logo" fill sizes="44px" style={{ objectFit: 'cover' }} />
         </span>
         <span
           style={{

@@ -360,7 +360,7 @@ export default function EnterHillclimbPage() {
             >
               4er-Staffel.<br />
               <span style={{ color: 'transparent', WebkitTextStroke: '2px var(--chalk)' }}>
-                Raufs Dach.
+                Run the Ramp.
               </span>
             </h2>
           </Reveal>

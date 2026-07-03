@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
+import ShirtImg from '../reference/shirt.jpg'
 
 /* ─── Countdown ─────────────────────────────────────────────────────────────── */
 function nextTuesday() {
@@ -493,16 +495,15 @@ function StravaSection() {
           }}
         >
           {[
-            { val: '250+', lbl: 'MEMBERS' },
+            { val: '100+', lbl: 'MEMBERS' },
             { val: 'DI', lbl: 'TUESDAY RUN' },
-            { val: '∞', lbl: 'KILOMETER' },
           ].map(({ val, lbl }, i) => (
             <Reveal key={lbl} delay={i * 80}>
               <div
                 style={{
                   padding: '28px 24px',
                   background: 'rgba(244,241,235,0.06)',
-                  borderRight: i < 2 ? '1px solid rgba(244,241,235,0.1)' : 'none',
+                  borderRight: i < 1 ? '1px solid rgba(244,241,235,0.1)' : 'none',
                 }}
               >
                 <div
@@ -588,6 +589,158 @@ function HeroEleven() {
       }}
     >
       11
+    </div>
+  )
+}
+
+/* ─── Tuesday Run Card Stack ──────────────────────────────────────────────────── */
+const TUESDAY_CARDS = [
+  { tag: 'DIENSTAGS · SOCIAL', title: 'Tuesday Run', spec: '18:30 · 6 & 10 KM', bg: 'var(--red)', color: 'var(--chalk)' },
+  { tag: 'DIENSTAGS · WORKOUT', title: 'Hill Reps', spec: 'BERGSPRINTS · ALLE LEVELS', bg: 'var(--cobalt)', color: 'var(--chalk)' },
+  { tag: 'DIENSTAGS · WORKOUT', title: 'Progression Run', spec: 'START EASY · FINISH FAST', bg: '#fff', color: 'var(--black)', border: '1.5px solid var(--black)' },
+  { tag: 'DIENSTAGS · WORKOUT', title: 'Out & Back', spec: 'RAUS · WENDEN · ZURÜCK', bg: 'var(--coral)', color: 'var(--black)' },
+]
+
+function RunStack() {
+  const [index, setIndex] = useState(0)
+  const startX = useRef<number | null>(null)
+
+  const next = () => setIndex((i) => (i + 1) % TUESDAY_CARDS.length)
+  const prev = () => setIndex((i) => (i - 1 + TUESDAY_CARDS.length) % TUESDAY_CARDS.length)
+
+  const onPointerDown = (e: React.PointerEvent) => {
+    startX.current = e.clientX
+  }
+  const onPointerUp = (e: React.PointerEvent) => {
+    if (startX.current === null) return
+    const dx = e.clientX - startX.current
+    if (dx < -36) next()
+    else if (dx > 36) prev()
+    startX.current = null
+  }
+
+  return (
+    <div>
+      <div
+        style={{ position: 'relative', aspectRatio: '3 / 4.1', userSelect: 'none', touchAction: 'pan-y' }}
+        onPointerDown={onPointerDown}
+        onPointerUp={onPointerUp}
+      >
+        {TUESDAY_CARDS.map((c, i) => {
+          const rel = (i - index + TUESDAY_CARDS.length) % TUESDAY_CARDS.length
+          if (rel > 2) return null
+          return (
+            <div
+              key={c.title}
+              className="run-card"
+              style={{
+                position: 'absolute',
+                inset: 0,
+                background: c.bg,
+                color: c.color,
+                border: c.border || 'none',
+                borderRadius: 16,
+                padding: 22,
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                overflow: 'hidden',
+                cursor: rel === 0 ? 'grab' : 'default',
+                transform: `translateY(${rel * 14}px) scale(${1 - rel * 0.045})`,
+                zIndex: TUESDAY_CARDS.length - rel,
+                opacity: rel === 0 ? 1 : 0.92 - rel * 0.16,
+                transition: 'transform 0.4s cubic-bezier(.3,0,.2,1), opacity 0.4s',
+                pointerEvents: rel === 0 ? 'auto' : 'none',
+              }}
+            >
+              <span
+                style={{
+                  fontFamily: 'var(--font-ibm-plex-mono)',
+                  fontSize: 11,
+                  letterSpacing: '0.2em',
+                  opacity: 0.85,
+                }}
+              >
+                {c.tag}
+              </span>
+              <div className="ring" />
+              <div>
+                <h3
+                  style={{
+                    fontFamily: 'var(--font-anton)',
+                    fontWeight: 400,
+                    fontSize: 'clamp(34px,3.4vw,52px)',
+                    lineHeight: 0.92,
+                    textTransform: 'uppercase',
+                    marginTop: 'auto',
+                  }}
+                >
+                  {c.title}
+                </h3>
+                <div
+                  style={{
+                    fontFamily: 'var(--font-ibm-plex-mono)',
+                    fontSize: 12,
+                    letterSpacing: '0.12em',
+                    marginTop: 14,
+                    opacity: 0.85,
+                  }}
+                >
+                  {c.spec}
+                </div>
+              </div>
+            </div>
+          )
+        })}
+      </div>
+
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: 14 }}>
+        <div style={{ display: 'flex', gap: 8 }}>
+          <button
+            aria-label="Vorherige Karte"
+            onClick={prev}
+            style={{
+              width: 30, height: 30, borderRadius: '50%', border: '1.5px solid var(--black)',
+              background: 'transparent', cursor: 'pointer', fontSize: 14, lineHeight: 1,
+            }}
+          >
+            ‹
+          </button>
+          <button
+            aria-label="Nächste Karte"
+            onClick={next}
+            style={{
+              width: 30, height: 30, borderRadius: '50%', border: '1.5px solid var(--black)',
+              background: 'transparent', cursor: 'pointer', fontSize: 14, lineHeight: 1,
+            }}
+          >
+            ›
+          </button>
+        </div>
+        <div style={{ display: 'flex', gap: 6 }}>
+          {TUESDAY_CARDS.map((c, i) => (
+            <button
+              key={c.title}
+              aria-label={c.title}
+              onClick={() => setIndex(i)}
+              style={{
+                width: 8, height: 8, borderRadius: '50%', border: 'none', cursor: 'pointer', padding: 0,
+                background: i === index ? 'var(--black)' : 'rgba(13,12,11,0.2)',
+              }}
+            />
+          ))}
+        </div>
+        <div
+          style={{
+            fontFamily: 'var(--font-ibm-plex-mono)',
+            fontSize: 11,
+            letterSpacing: '0.14em',
+            color: 'var(--ash)',
+          }}
+        >
+          ← WISCHEN →
+        </div>
+      </div>
     </div>
   )
 }
@@ -728,7 +881,7 @@ export default function HomePage() {
                   { k: 'WANN', v: 'Di — 18:30' },
                   { k: 'WO', v: 'SOL-ID', sub: 'Klosterplatz 6, 4500 Solothurn' },
                   { k: 'DISTANZ', v: '6 & 10 KM' },
-                  { k: 'PACE', v: '6:00 / 5:30 MIN/KM' },
+                  { k: 'PACE', v: '6:00 oder 5:30 MIN/KM' },
                 ].map(({ k, v, sub }) => (
                   <div
                     key={k}
@@ -744,7 +897,7 @@ export default function HomePage() {
                     <span
                       style={{
                         fontFamily: 'var(--font-ibm-plex-mono)',
-                        fontSize: 12,
+                        fontSize: 15,
                         letterSpacing: '0.2em',
                         color: 'var(--ash)',
                       }}
@@ -754,7 +907,7 @@ export default function HomePage() {
                     <span
                       style={{
                         fontFamily: 'var(--font-anton)',
-                        fontSize: 'clamp(20px,2.6vw,34px)',
+                        fontSize: 'clamp(24px,3.2vw,42px)',
                         textTransform: 'uppercase',
                         textAlign: 'right',
                       }}
@@ -835,86 +988,76 @@ export default function HomePage() {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
             gap: 16,
             marginTop: 56,
+            maxWidth: 620,
           }}
         >
-          {[
-            { tag: 'DIENSTAGS · SOCIAL', title: 'Tuesday Run', spec: '18:30 · 6 & 10 KM', bg: 'var(--red)', color: 'var(--chalk)' },
-            { tag: '1× IM MONAT', title: 'Longrun', spec: 'SA · 09:30 · 10 ODER 15 KM', bg: 'var(--black)', color: 'var(--chalk)' },
-            { tag: 'DIENSTAGS · WORKOUT', title: 'Hill Reps', spec: 'BERGSPRINTS · ALLE LEVELS', bg: 'var(--cobalt)', color: 'var(--chalk)' },
-            { tag: 'DIENSTAGS · WORKOUT', title: 'Progression Run', spec: 'START EASY · FINISH FAST', bg: '#fff', color: 'var(--black)', border: '1.5px solid var(--black)' },
-            { tag: 'DIENSTAGS · WORKOUT', title: 'Out & Back', spec: 'RAUS · WENDEN · ZURÜCK', bg: 'var(--coral)', color: 'var(--black)' },
-          ].map(({ tag, title, spec, bg, color, border }, i) => (
-            <Reveal key={title} delay={i * 60}>
-              <div
-                className="run-card"
+          <Reveal>
+            <RunStack />
+          </Reveal>
+
+          <Reveal delay={60}>
+            <div
+              className="run-card"
+              style={{
+                background: 'var(--black)',
+                color: 'var(--chalk)',
+                aspectRatio: '3 / 4.1',
+                borderRadius: 16,
+                padding: 22,
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                position: 'relative',
+                overflow: 'hidden',
+                cursor: 'default',
+              }}
+            >
+              <span
                 style={{
-                  background: bg,
-                  color,
-                  border: border || 'none',
-                  aspectRatio: '3 / 4.1',
-                  borderRadius: 16,
-                  padding: 22,
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  position: 'relative',
-                  overflow: 'hidden',
-                  cursor: 'default',
+                  fontFamily: 'var(--font-ibm-plex-mono)',
+                  fontSize: 11,
+                  letterSpacing: '0.2em',
+                  opacity: 0.85,
                 }}
               >
-                <span
+                1× IM MONAT
+              </span>
+              <div className="ring" />
+              <div>
+                <h3
+                  style={{
+                    fontFamily: 'var(--font-anton)',
+                    fontWeight: 400,
+                    fontSize: 'clamp(34px,3.4vw,52px)',
+                    lineHeight: 0.92,
+                    textTransform: 'uppercase',
+                    marginTop: 'auto',
+                  }}
+                >
+                  Longrun
+                </h3>
+                <div
                   style={{
                     fontFamily: 'var(--font-ibm-plex-mono)',
-                    fontSize: 11,
-                    letterSpacing: '0.2em',
+                    fontSize: 12,
+                    letterSpacing: '0.12em',
+                    marginTop: 14,
                     opacity: 0.85,
                   }}
                 >
-                  {tag}
-                </span>
-                <div className="ring" />
-                <div>
-                  <h3
-                    style={{
-                      fontFamily: 'var(--font-anton)',
-                      fontWeight: 400,
-                      fontSize: 'clamp(34px,3.4vw,52px)',
-                      lineHeight: 0.92,
-                      textTransform: 'uppercase',
-                      marginTop: 'auto',
-                    }}
-                  >
-                    {title}
-                  </h3>
-                  <div
-                    style={{
-                      fontFamily: 'var(--font-ibm-plex-mono)',
-                      fontSize: 12,
-                      letterSpacing: '0.12em',
-                      marginTop: 14,
-                      opacity: 0.85,
-                    }}
-                  >
-                    {spec}
-                  </div>
+                  SA · 09:30 · 10 ODER 15 KM
                 </div>
               </div>
-            </Reveal>
-          ))}
+            </div>
+          </Reveal>
         </div>
       </section>
 
       {/* ── Pinned Event ── */}
       <PinnedEvent />
-
-      {/* ── Strava ── */}
-      <StravaSection />
-
-      {/* ── Slogan Marquee ── */}
-      <SloganMarquee />
 
       {/* ── Join ── */}
       <section
@@ -922,8 +1065,27 @@ export default function HomePage() {
         style={{
           padding: 'clamp(70px,10vw,140px) clamp(20px,4vw,56px)',
           textAlign: 'center',
+          position: 'relative',
+          overflow: 'hidden',
         }}
       >
+        <div
+          className="hidden md:block"
+          style={{
+            position: 'absolute',
+            top: '8%',
+            right: '7%',
+            width: 150,
+            aspectRatio: '3 / 4',
+            borderRadius: 16,
+            overflow: 'hidden',
+            transform: 'rotate(6deg)',
+            boxShadow: '0 20px 40px rgba(13,12,11,0.25)',
+          }}
+        >
+          <Image src={ShirtImg} alt="11RUNCLUB Shirt" fill sizes="150px" style={{ objectFit: 'cover' }} />
+        </div>
+
         <Reveal>
           <div className="kicker" style={{ justifyContent: 'center' }}>
             Werde Teil davon
@@ -1019,6 +1181,12 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+
+      {/* ── Strava ── */}
+      <StravaSection />
+
+      {/* ── Slogan Marquee ── */}
+      <SloganMarquee />
 
       <style>{`
         @keyframes pulse {
