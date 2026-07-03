@@ -15,16 +15,19 @@ Instagram-Auftritt und Linktree des Clubs recherchiert. Lies zuerst
 - [x] Statischer Homepage-Mock → `preview/index.html` (self-contained, kein Build nötig)
 - [ ] Feedback des Clubs zur Designrichtung
 - [ ] Original-Logodateien & Fotos vom Club besorgen (Farben final abgleichen!)
-- [ ] Echte Links einsetzen (WhatsApp/Strava/Insta — aktuell `href="#"` Platzhalter)
+- [x] Echte Links eingesetzt (Strava: https://www.strava.com/clubs/11RUNCLUB ·
+  WhatsApp: https://tr.ee/wKzGb4-Rug · Insta: @11.runclub)
 - [ ] Umsetzung als Next.js-Projekt (App Router + Tailwind, Deploy auf Vercel)
 - [ ] Domain (Vorschlag: 11runclub.ch), danach Link-in-Bio von Linktree auf Website umstellen
 
 ## Fakten über den Club (Quelle: Instagram-Bio & Posts, Juni 2026)
 
-- „Dein RUNCLUB in Solothurn." — ~841 Follower, gegründet ~2025
-- **Tuesday Run:** jeden Dienstag 18:30, Treffpunkt SOL-ID Athletes World, Klosterplatz 6, 4500 Solothurn
-- **Longruns:** samstags 09:30, wahlweise 10 oder 15 km, Start vor dem SOL-ID
-- Weitere Formate aus Posts: Hill Reps, Progression Run, Out & Back
+- „Dein RUNCLUB in Solothurn." — über 900 Follower, gegründet ~2025 (Stand Juli 2026)
+- **Tuesday Run:** jeden Dienstag 18:30, Treffpunkt SOL-ID Athletes World, Klosterplatz 6,
+  4500 Solothurn. Distanzen 6 & 10 km, Pace 6:00 bzw. 5:30 min/km. Dienstags wechseln sich
+  der lockere Tuesday/Social Run und ein Workout ab (Hill Reps, Progression Run oder
+  Out & Back) — nicht beides gleichzeitig.
+- **Longrun:** 1× im Monat an einem Samstag, 09:30, wahlweise 10 oder 15 km, Start vor dem SOL-ID
 - **Keine Anmeldung nötig** (für die wöchentlichen Runs) — zentrale Botschaft, immer kommunizieren
 - Slogan: **RUN TOGETHER. IMPROVE TOGETHER. ENJOY TOGETHER.**
 - **The Maze by Saucony x 11RUNCLUB** — das eigene Rennen des Clubs (Datum aus Insta-Highlight
@@ -39,6 +42,8 @@ Instagram-Auftritt und Linktree des Clubs recherchiert. Lies zuerst
 - Zusätzlich sollte eine eigene Team-Seite entstehen, die Anna, Emma, Nils und Noa
   mit kurzen Beschreibungen vorstellt. Die Community-Zahlen sind bereits stark:
   aktuell über 900 Follower und rund 250 Personen in der WhatsApp-Community.
+  Läufer:innen-Zahl auf der Website immer als Untergrenze kommunizieren
+  („über 900", nicht als exakter Wert).
 - Tonalität: Deutsch, Du-Form, locker, niederschwellig (Insta-Captions teils Schweizerdeutsch,
   Website aber Hochdeutsch)
 
@@ -78,7 +83,8 @@ Eine einzige HTML-Datei, Fonts via Google Fonts, kein Build. Enthält: Ticker,
 Hero mit Live-Countdown (nächster Dienstag 18:30, lokale Zeit) und Parallax-„11",
 „Geheime Route"-Karte (gestrichelte Linie ab SOL-ID, endet im „?"), Format-Karten,
 gepinnte Event-Sektion (scrollgesteuerter Aufbau — der eine Apple-Moment der Seite),
-Slogan-Marquee, Join-Buttons, Footer und am Ende ein Design-System-Anhang (Style Tile).
+Slogan-Marquee, Join-Buttons, Footer. Der Design-System-Anhang (Style Tile) am Ende
+wurde entfernt (Juli 2026) — Anhang nicht wieder einführen.
 `prefers-reduced-motion` wird respektiert — beibehalten.
 
 ## Regeln für Weiterentwicklung

@@ -47,7 +47,7 @@ export default function Footer() {
             @11.RUNCLUB
           </a>
           <a
-            href="https://www.strava.com/clubs/11runclub"
+            href="https://www.strava.com/clubs/11RUNCLUB"
             target="_blank"
             rel="noopener noreferrer"
             style={{ color: 'var(--ash)', textDecoration: 'none' }}
@@ -56,7 +56,7 @@ export default function Footer() {
             STRAVA
           </a>
           <a
-            href="https://chat.whatsapp.com/11runclub"
+            href="https://tr.ee/wKzGb4-Rug"
             target="_blank"
             rel="noopener noreferrer"
             style={{ color: 'var(--ash)', textDecoration: 'none' }}

@@ -325,11 +325,11 @@ function PinnedEvent() {
       <div className="pin-wrap" id="events" ref={pinRef}>
         <section className="pin-event" ref={eventRef}>
           <div className="pin-event__circle" aria-hidden="true" />
-          <div className="kicker kicker--chalk">Save the Date — Unser Rennen</div>
+          <div className="kicker kicker--chalk">Save the Date — By Saucony × 11RUNCLUB</div>
           <div className="pin-event__big">
-            Enter<br />
+            The<br />
             <span style={{ color: 'transparent', WebkitTextStroke: '2px var(--chalk)' }}>
-              Hillclimb
+              Maze
             </span>
           </div>
           <div className="pin-event__row">
@@ -432,7 +432,7 @@ function StravaSection() {
         <Reveal delay={240}>
           <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', alignItems: 'center' }}>
             <a
-              href="https://www.strava.com/clubs/11runclub"
+              href="https://www.strava.com/clubs/11RUNCLUB"
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -666,7 +666,7 @@ export default function HomePage() {
         >
           <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
             <a
-              href="https://chat.whatsapp.com/11runclub"
+              href="https://tr.ee/wKzGb4-Rug"
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn--solid"
@@ -704,7 +704,7 @@ export default function HomePage() {
               textTransform: 'uppercase',
             }}
           >
-            Jeden Dienstag.<br />18:30. Punkt.
+            Jeden Dienstag.<br />18:30. @SOL-ID.
           </h2>
         </Reveal>
 
@@ -727,8 +727,8 @@ export default function HomePage() {
                 {[
                   { k: 'WANN', v: 'Di — 18:30' },
                   { k: 'WO', v: 'SOL-ID', sub: 'Klosterplatz 6, 4500 Solothurn' },
-                  { k: 'DISTANZ', v: '5–8 KM' },
-                  { k: 'PACE', v: 'Alle Levels' },
+                  { k: 'DISTANZ', v: '6 & 10 KM' },
+                  { k: 'PACE', v: '6:00 / 5:30 MIN/KM' },
                 ].map(({ k, v, sub }) => (
                   <div
                     key={k}
@@ -826,8 +826,9 @@ export default function HomePage() {
               marginTop: 24,
             }}
           >
-            Vom lockeren Social Run bis zu Hill Reps am Berg — bei uns findest du jedes Tempo.
-            Zusammen starten, zusammen ankommen.
+            Dienstags wechseln sich lockerer Tuesday Run und Workout ab — Hill Reps,
+            Progression Run oder Out &amp; Back. Einmal im Monat kommt an einem Samstag
+            der Longrun dazu.
           </p>
         </Reveal>
 
@@ -840,11 +841,11 @@ export default function HomePage() {
           }}
         >
           {[
-            { tag: 'JEDEN DIENSTAG', title: 'Tuesday Run', spec: '18:30 · 5–8 KM · SOCIAL PACE', bg: 'var(--red)', color: 'var(--chalk)' },
-            { tag: 'SAMSTAGS', title: 'Longrun', spec: '09:30 · 10 ODER 15 KM', bg: 'var(--black)', color: 'var(--chalk)' },
-            { tag: 'WORKOUT', title: 'Hill Reps', spec: 'BERGSPRINTS · ALLE LEVELS', bg: 'var(--cobalt)', color: 'var(--chalk)' },
-            { tag: 'WORKOUT', title: 'Progression Run', spec: 'START EASY · FINISH FAST', bg: '#fff', color: 'var(--black)', border: '1.5px solid var(--black)' },
-            { tag: 'SPEZIAL', title: 'Out & Back', spec: 'RAUS · WENDEN · ZURÜCK', bg: 'var(--coral)', color: 'var(--black)' },
+            { tag: 'DIENSTAGS · SOCIAL', title: 'Tuesday Run', spec: '18:30 · 6 & 10 KM', bg: 'var(--red)', color: 'var(--chalk)' },
+            { tag: '1× IM MONAT', title: 'Longrun', spec: 'SA · 09:30 · 10 ODER 15 KM', bg: 'var(--black)', color: 'var(--chalk)' },
+            { tag: 'DIENSTAGS · WORKOUT', title: 'Hill Reps', spec: 'BERGSPRINTS · ALLE LEVELS', bg: 'var(--cobalt)', color: 'var(--chalk)' },
+            { tag: 'DIENSTAGS · WORKOUT', title: 'Progression Run', spec: 'START EASY · FINISH FAST', bg: '#fff', color: 'var(--black)', border: '1.5px solid var(--black)' },
+            { tag: 'DIENSTAGS · WORKOUT', title: 'Out & Back', spec: 'RAUS · WENDEN · ZURÜCK', bg: 'var(--coral)', color: 'var(--black)' },
           ].map(({ tag, title, spec, bg, color, border }, i) => (
             <Reveal key={title} delay={i * 60}>
               <div
@@ -938,7 +939,7 @@ export default function HomePage() {
               marginBottom: 14,
             }}
           >
-            900+ Läufer:innen.<br />Und du.
+            Du und über<br />900 Läufer:innen.
           </h2>
         </Reveal>
         <Reveal delay={120}>
@@ -958,8 +959,8 @@ export default function HomePage() {
           }}
         >
           {[
-            { nm: 'WhatsApp', ds: 'COMMUNITY BEITRETEN — GRATIS', href: 'https://chat.whatsapp.com/11runclub' },
-            { nm: 'Strava', ds: 'CLUB FOLGEN — KMS ZÄHLEN', href: 'https://www.strava.com/clubs/11runclub' },
+            { nm: 'WhatsApp', ds: 'COMMUNITY BEITRETEN — GRATIS', href: 'https://tr.ee/wKzGb4-Rug' },
+            { nm: 'Strava', ds: 'CLUB FOLGEN — KMS ZÄHLEN', href: 'https://www.strava.com/clubs/11RUNCLUB' },
             { nm: 'Instagram', ds: '@11.RUNCLUB — FOTOS & REELS', href: 'https://instagram.com/11.runclub' },
           ].map(({ nm, ds, href }, i) => (
             <Reveal key={nm} delay={i * 80}>

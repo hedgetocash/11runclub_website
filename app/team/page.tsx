@@ -522,7 +522,7 @@ export default function TeamPage() {
         <Reveal delay={220}>
           <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
             <a
-              href="https://chat.whatsapp.com/11runclub"
+              href="https://tr.ee/wKzGb4-Rug"
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn--solid"

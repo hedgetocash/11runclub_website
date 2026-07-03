@@ -225,11 +225,25 @@ export default function EnterHillclimbPage() {
                 marginBottom: 16,
               }}
             >
-              <span style={{ color: 'var(--red)' }}>Enter</span><br />
+              <span style={{ color: 'var(--red)' }}>The</span><br />
               <span style={{ color: 'transparent', WebkitTextStroke: '2px var(--chalk)' }}>
-                Hillclimb
+                Maze
               </span>
             </h1>
+          </Reveal>
+
+          <Reveal delay={120}>
+            <div
+              style={{
+                fontFamily: 'var(--font-ibm-plex-mono)',
+                fontSize: 'clamp(13px,1.5vw,18px)',
+                letterSpacing: '0.2em',
+                color: 'var(--chalk)',
+                marginTop: 20,
+              }}
+            >
+              BY SAUCONY × 11RUNCLUB
+            </div>
           </Reveal>
 
           <Reveal delay={140}>
@@ -245,8 +259,7 @@ export default function EnterHillclimbPage() {
               }}
             >
               FR 25.09.2026 · ENTER TECHNIKWELT, DERENDINGEN<br />
-              4ER-STAFFEL · RAUFS PARKDECK UND RUNTER<br />
-              ORGANISIERT VOM 11RUNCLUB × SAUCONY
+              4ER-STAFFEL · RAUFS PARKDECK UND RUNTER
             </div>
           </Reveal>
 
@@ -486,7 +499,7 @@ export default function EnterHillclimbPage() {
               Instagram folgen →
             </a>
             <a
-              href="https://chat.whatsapp.com/11runclub"
+              href="https://tr.ee/wKzGb4-Rug"
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn--chalk"
