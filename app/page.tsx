@@ -80,6 +80,7 @@ function Countdown() {
 								fontSize: 'clamp(40px,6vw,80px)',
 								lineHeight: 1,
 								fontVariantNumeric: 'tabular-nums',
+								color: 'var(--red)',
 							}}
 						>
 							{val}
@@ -496,8 +497,7 @@ function StravaSection() {
 					>
 						Tritt unserem offiziellen Strava-Club bei und sammle mit
 						der ganzen Community Kilometer. Jede Runde zählt — egal
-						ob Social Run, Longrun oder Solo-Training
-						zwischendurch.
+						ob Social Run, Longrun oder Solo-Training zwischendurch.
 					</p>
 				</Reveal>
 
@@ -767,8 +767,7 @@ function RunStack() {
 			>
 				{SOCIAL_CARDS.map((c, i) => {
 					const rel =
-						(i - index + SOCIAL_CARDS.length) %
-						SOCIAL_CARDS.length
+						(i - index + SOCIAL_CARDS.length) % SOCIAL_CARDS.length
 					if (rel > 2) return null
 					return (
 						<div
@@ -1054,9 +1053,7 @@ function FAQSection() {
 								}}
 							>
 								<button
-									onClick={() =>
-										setOpen(isOpen ? null : i)
-									}
+									onClick={() => setOpen(isOpen ? null : i)}
 									style={{
 										width: '100%',
 										display: 'flex',
@@ -1135,21 +1132,14 @@ export default function HomePage() {
 					position: 'relative',
 					overflow: 'hidden',
 					color: 'var(--chalk)',
+					background: 'var(--black)',
 				}}
 			>
-				<video
-					autoPlay
-					loop
-					muted
-					playsInline
-					src="/RunKanti.MOV"
-					className="object-cover w-full h-full absolute inset-0 -z-20"
-				/>
-				<div
-					aria-hidden="true"
-					className="absolute inset-0 -z-10"
-					style={{ background: 'rgba(13,12,11,0.55)' }}
-				/>
+				{/* Hero-Video folgt, sobald die komprimierte RunKanti.MOV bereitsteht:
+				    <video autoPlay loop muted playsInline src="/RunKanti.MOV"
+				      className="object-cover w-full h-full absolute inset-0 -z-20" />
+				    <div aria-hidden="true" className="absolute inset-0 -z-10"
+				      style={{ background: 'rgba(13,12,11,0.55)' }} /> */}
 				<HeroEleven />
 				<div
 					style={{
