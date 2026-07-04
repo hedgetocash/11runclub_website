@@ -586,9 +586,9 @@ export default function PartnerPage() {
 								fontFamily: 'var(--font-archivo)',
 							}}
 						>
-							Reach out über Instagram oder per Mail. Wir melden
-							uns innerhalb weniger Stunden. Kein Pitch-Deck nötig
-							— einfach schreiben.
+							Reach out über Instagram. Wir melden uns innerhalb
+							weniger Stunden. Kein Pitch-Deck nötig — einfach
+							schreiben.
 						</p>
 					</Reveal>
 
@@ -643,7 +643,7 @@ export default function PartnerPage() {
 								<br />
 								👥 900+ Insta · 250+ WhatsApp
 								<br />
-								🎯 Zielgruppe: Sportbegeisterte, 18–45 Jahre
+								🎯 Zielgruppe: Sportbegeisterte
 							</div>
 						</div>
 					</Reveal>

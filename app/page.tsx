@@ -402,7 +402,7 @@ function PinnedEvent() {
 							<br />
 							4ER-STAFFEL — RAUFS PARKDECK UND RUNTER
 							<br />
-							100+ LÄUFER:INNEN — INFOS FOLGEN
+							120 LÄUFER:INNEN — INFOS FOLGEN
 						</div>
 						<Link
 							href="/enter-hillclimb"
@@ -568,7 +568,7 @@ function StravaSection() {
 								color: 'rgba(244,241,235,0.55)',
 							}}
 						>
-							KLUB · 11RUNCLUB · SOLOTHURN
+							CLUB · 11RUNCLUB · SOLOTHURN
 						</div>
 					</div>
 				</Reveal>
@@ -588,7 +588,7 @@ function StravaSection() {
 				>
 					{[
 						{ val: '150+', lbl: 'MEMBERS' },
-						{ val: 'DI', lbl: 'SOCIAL RUN' },
+						{ val: 'Weekly', lbl: 'Runs' },
 					].map(({ val, lbl }, i) => (
 						<Reveal key={lbl} delay={i * 80}>
 							<div
@@ -994,15 +994,15 @@ function ImpressionenSection() {
 const FAQ_ITEMS = [
 	{
 		q: 'Kostet die Teilnahme etwas?',
-		a: 'Nein, der 11RUNCLUB ist komplett kostenlos und offen für alle.',
+		a: 'Nein, die Teilnahme ist komplett kostenlos und offen für alle.',
 	},
 	{
 		q: 'Wie schnell wird gelaufen?',
-		a: 'Wir laufen im Wohlfühltempo, sodass sich alle unterhalten können. Niemand wird zurückgelassen!',
+		a: 'Wir laufen während den Social Runs in zwei Gruppen. Eine 6km @6:00min/km und die andere 10km @5:30min/km. Niemand wird zurückgelassen!',
 	},
 	{
 		q: 'Muss ich mich anmelden?',
-		a: 'Nein, für unsere regulären Social Runs kannst du einfach spontan vorbeikommen.',
+		a: 'Nein, du kannst einfach spontan vorbeikommen.',
 	},
 ]
 
@@ -1132,7 +1132,7 @@ export default function HomePage() {
 					position: 'relative',
 					overflow: 'hidden',
 					color: 'var(--chalk)',
-					background: 'var(--black)',
+					background: 'var(--chalk)',
 				}}
 			>
 				{/* Hero-Video folgt, sobald die komprimierte RunKanti.MOV bereitsteht:
@@ -1146,7 +1146,7 @@ export default function HomePage() {
 						fontFamily: 'var(--font-ibm-plex-mono)',
 						fontSize: 13,
 						letterSpacing: '0.18em',
-						color: 'var(--ash)',
+						color: 'var(--black)',
 						marginBottom: 22,
 						display: 'flex',
 						alignItems: 'center',
@@ -1164,7 +1164,7 @@ export default function HomePage() {
 							flexShrink: 0,
 						}}
 					/>
-					<span>SOLOTHURN · CH-4500</span>
+					<span>SOLOTHURN</span>
 					<span>SEIT 2025</span>
 				</div>
 
