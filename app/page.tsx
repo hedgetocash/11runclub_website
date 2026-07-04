@@ -6,7 +6,6 @@ import Image from 'next/image'
 import ShirtImg from '../reference/shirt.jpg'
 import FrontRunImg from '../reference/frontrun.jpg'
 import RunLineImg from '../reference/runline.jpg'
-import RouteMapImg from '../reference/route-map.jpg'
 
 /* ─── Countdown ─────────────────────────────────────────────────────────────── */
 function nextTuesday() {
@@ -193,33 +192,53 @@ function RouteMap() {
 					gap: '2px 12px',
 				}}
 			>
-				<span>BEISPIEL-ROUTE — VERENASCHLUCHT-RUNDE</span>
+				<span>BEISPIEL-ROUTE</span>
 				<span>±7.5 KM</span>
 			</div>
 			<div
 				style={{
 					position: 'relative',
 					width: '100%',
-					aspectRatio: '1179 / 1353',
+					aspectRatio: '713 / 701',
 					borderRadius: 12,
 					overflow: 'hidden',
+					background: 'rgba(244,241,235,0.04)',
 				}}
 			>
-				<Image
-					src={RouteMapImg}
-					alt="Beispielroute Solothurn — Werkhof, Wengistein, Feldbrunnen-St. Niklaus"
-					fill
-					sizes="(max-width: 860px) 100vw, 500px"
-					style={{ objectFit: 'cover' }}
-				/>
 				<svg
-					viewBox="0 0 1179 1353"
+					viewBox="0 0 713 701"
 					style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}
 				>
-					{/* Route line — folgt der auf dem Kartenbild eingezeichneten Strecke */}
+					{/* Imaginäre Karte — abstrahiertes Strassenraster + Fluss, keine echten Ortsdaten */}
+					<path
+						d="M-20,630 C110,605 210,565 290,505 C370,445 450,385 550,345 C615,320 675,302 733,292"
+						fill="none"
+						stroke="rgba(30,59,209,0.32)"
+						strokeWidth="26"
+						strokeLinecap="round"
+					/>
+					<g fill="none" stroke="rgba(244,241,235,0.13)" strokeWidth="1.5">
+						<path d="M80,-10 C95,120 60,250 100,380 C130,470 90,590 110,711" />
+						<path d="M190,-10 C175,110 215,240 180,370 C155,460 200,580 175,711" />
+						<path d="M300,-10 C315,130 285,260 310,390 C330,480 295,600 315,711" />
+						<path d="M410,-10 C395,120 430,250 400,380 C380,470 420,590 395,711" />
+						<path d="M520,-10 C535,110 500,240 530,370 C550,460 515,580 535,711" />
+						<path d="M620,-10 C605,130 640,260 615,390 C595,480 630,600 610,711" />
+						<path d="M-10,90 C130,105 260,75 390,100 C480,118 600,85 723,105" />
+						<path d="M-10,220 C130,205 260,240 390,215 C480,198 600,230 723,210" />
+						<path d="M-10,350 C130,365 260,335 390,360 C480,378 600,345 723,365" />
+						<path d="M-10,480 C130,465 260,495 390,470 C480,452 600,485 723,465" />
+						<path d="M-10,600 C130,615 260,585 390,610 C480,628 600,595 723,615" />
+					</g>
+					<g fill="rgba(30,140,90,0.13)">
+						<ellipse cx="120" cy="130" rx="70" ry="50" transform="rotate(-12 120 130)" />
+						<ellipse cx="600" cy="470" rx="85" ry="60" transform="rotate(8 600 470)" />
+						<ellipse cx="560" cy="120" rx="55" ry="40" transform="rotate(15 560 120)" />
+					</g>
+					{/* Route line — nachgezeichnet von einem Lauf, den wir vor ein paar Wochen gemacht haben */}
 					<path
 						className="route-line"
-						d="M505,1075 C500,1020 510,970 520,930 C535,895 545,880 548,865 C540,800 525,750 522,700 C520,650 520,580 522,520 C525,480 545,460 565,435 C595,400 615,360 628,270 C632,230 645,160 660,90 C685,65 705,55 730,58 C760,62 790,45 820,58 C845,68 865,45 900,58 C935,72 960,90 985,120 C1015,150 1050,180 1075,215 C1090,240 1092,255 1085,265 C1050,270 1010,268 975,270 C935,272 895,285 860,300 C825,300 790,298 755,285 C715,270 680,330 655,390 C625,440 590,470 565,510 C545,545 530,600 525,650 C520,680 500,660 460,645 C410,625 355,600 300,585 C255,595 215,610 180,640 C150,665 130,695 122,730 C118,760 128,790 150,825 C172,850 190,875 175,900 C155,915 140,940 138,975 C137,1005 160,1040 190,1070 C210,1085 225,1092 240,1090 C270,1120 300,1150 345,1175 C380,1188 410,1170 435,1145 C455,1120 470,1100 485,1088 C495,1082 500,1078 505,1075 Z"
+						d="M230,552 L210,530 L190,500 L175,470 L162,445 L150,430 L162,417 L142,405 L130,390 L137,376 L124,357 L130,345 L148,332 L175,315 L205,296 L230,279 L255,263 L280,249 L300,240 L302,216 L306,191 L317,166 L331,146 L346,129 L361,114 L378,99 L395,86 L410,76 L425,69 L438,64 L449,73 L459,66 L476,86 L496,106 L516,126 L531,146 L541,153 L524,159 L505,161 L486,169 L461,173 L441,171 L421,179 L401,186 L386,196 L376,216 L369,241 L363,261 L351,286 L339,311 L326,336 L316,361 L309,386 L301,406 L296,416 L301,431 L311,451 L321,463 L311,451 L301,431 L296,416 L301,406 L309,386 L316,361 L326,336 L339,311 L351,286 L363,261 L369,241 L376,216 L386,196 L401,186 L421,179 L441,171 L461,173 L486,169 L505,161 L524,159 L541,153 L531,146 L516,126 L496,106 L476,86 L459,66 L449,73 L438,64 L425,69 L410,76 L395,86 L378,99 L361,114 L346,129 L331,146 L317,166 L306,191 L302,216 L300,240 L280,249 L255,263 L230,279 L205,296 L175,315 L148,332 L130,345 L124,357 L137,376 L130,390 L142,405 L162,417 L150,430 L162,445 L175,470 L190,500 L210,530 L230,552"
 					/>
 					{/* Läufer-Punkt */}
 					<circle r="9" fill="#F4F1EB" stroke="#EE3829" strokeWidth="4">
@@ -227,7 +246,7 @@ function RouteMap() {
 							dur="15s"
 							repeatCount="indefinite"
 							begin="2.5s"
-							path="M505,1075 C500,1020 510,970 520,930 C535,895 545,880 548,865 C540,800 525,750 522,700 C520,650 520,580 522,520 C525,480 545,460 565,435 C595,400 615,360 628,270 C632,230 645,160 660,90 C685,65 705,55 730,58 C760,62 790,45 820,58 C845,68 865,45 900,58 C935,72 960,90 985,120 C1015,150 1050,180 1075,215 C1090,240 1092,255 1085,265 C1050,270 1010,268 975,270 C935,272 895,285 860,300 C825,300 790,298 755,285 C715,270 680,330 655,390 C625,440 590,470 565,510 C545,545 530,600 525,650 C520,680 500,660 460,645 C410,625 355,600 300,585 C255,595 215,610 180,640 C150,665 130,695 122,730 C118,760 128,790 150,825 C172,850 190,875 175,900 C155,915 140,940 138,975 C137,1005 160,1040 190,1070 C210,1085 225,1092 240,1090 C270,1120 300,1150 345,1175 C380,1188 410,1170 435,1145 C455,1120 470,1100 485,1088 C495,1082 500,1078 505,1075 Z"
+							path="M230,552 L210,530 L190,500 L175,470 L162,445 L150,430 L162,417 L142,405 L130,390 L137,376 L124,357 L130,345 L148,332 L175,315 L205,296 L230,279 L255,263 L280,249 L300,240 L302,216 L306,191 L317,166 L331,146 L346,129 L361,114 L378,99 L395,86 L410,76 L425,69 L438,64 L449,73 L459,66 L476,86 L496,106 L516,126 L531,146 L541,153 L524,159 L505,161 L486,169 L461,173 L441,171 L421,179 L401,186 L386,196 L376,216 L369,241 L363,261 L351,286 L339,311 L326,336 L316,361 L309,386 L301,406 L296,416 L301,431 L311,451 L321,463 L311,451 L301,431 L296,416 L301,406 L309,386 L316,361 L326,336 L339,311 L351,286 L363,261 L369,241 L376,216 L386,196 L401,186 L421,179 L441,171 L461,173 L486,169 L505,161 L524,159 L541,153 L531,146 L516,126 L496,106 L476,86 L459,66 L449,73 L438,64 L425,69 L410,76 L395,86 L378,99 L361,114 L346,129 L331,146 L317,166 L306,191 L302,216 L300,240 L280,249 L255,263 L230,279 L205,296 L175,315 L148,332 L130,345 L124,357 L137,376 L130,390 L142,405 L162,417 L150,430 L162,445 L175,470 L190,500 L210,530 L230,552"
 						/>
 					</circle>
 				</svg>
@@ -241,8 +260,8 @@ function RouteMap() {
 					marginTop: 10,
 				}}
 			>
-				→ Beispielroute: Aare · Feldbrunnen · St. Niklaus ·
-				Verenaschlucht · Steingruben. Die echte Strecke gibts am Start.
+				→ Beispielroute: einer unserer Läufe der letzten Wochen.
+				Die echte Strecke gibts am Start.
 			</p>
 			<div
 				className="checker"
@@ -661,7 +680,7 @@ function HeroEleven() {
 				fontFamily: 'var(--font-anton)',
 				fontSize: 'clamp(300px,42vw,640px)',
 				color: 'transparent',
-				WebkitTextStroke: '1.5px rgba(244,241,235,0.16)',
+				WebkitTextStroke: '1.5px rgba(13,12,11,0.10)',
 				lineHeight: 1,
 				userSelect: 'none',
 				pointerEvents: 'none',
@@ -1102,7 +1121,7 @@ export default function HomePage() {
 					justifyContent: 'flex-end',
 					position: 'relative',
 					overflow: 'hidden',
-					color: 'var(--chalk)',
+					color: 'var(--black)',
 					background: 'var(--chalk)',
 				}}
 			>
@@ -1148,7 +1167,7 @@ export default function HomePage() {
 						letterSpacing: '-0.005em',
 						fontWeight: 400,
 						maxWidth: '12ch',
-						color: 'var(--chalk)',
+						color: 'var(--black)',
 					}}
 				>
 					Dein
@@ -1156,7 +1175,7 @@ export default function HomePage() {
 					<span
 						style={{
 							color: 'transparent',
-							WebkitTextStroke: '2.5px var(--chalk)',
+							WebkitTextStroke: '2.5px var(--black)',
 						}}
 					>
 						Runclub
@@ -1185,7 +1204,7 @@ export default function HomePage() {
 						>
 							WhatsApp beitreten
 						</a>
-						<a href="#next" className="btn btn--chalk">
+						<a href="#next" className="btn btn--ghost">
 							Nächster Run ↓
 						</a>
 					</div>
@@ -1450,15 +1469,9 @@ export default function HomePage() {
 				}}
 			>
 				<div
-					className="hidden md:block"
 					style={{
 						position: 'absolute',
-						top: '2%',
-						right: '2%',
-						width: 'clamp(260px,34vw,460px)',
-						aspectRatio: '3 / 4',
-						borderRadius: 16,
-						overflow: 'hidden',
+						inset: 0,
 						opacity: 0.35,
 						zIndex: -1,
 					}}
@@ -1467,7 +1480,7 @@ export default function HomePage() {
 						src={ShirtImg}
 						alt="11RUNCLUB Shirt"
 						fill
-						sizes="460px"
+						sizes="100vw"
 						style={{ objectFit: 'cover' }}
 					/>
 				</div>

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
+import EnterBuildingPlan from '../../components/EnterBuildingPlan'
 
 function Reveal({
   children,
@@ -442,6 +443,93 @@ export default function EnterHillclimbPage() {
               Details zu Ablauf, Anmeldung und Startzeit folgen.
             </p>
           </Reveal>
+        </div>
+      </section>
+
+      {/* ── Der Plan ── */}
+      <section
+        style={{
+          background: 'var(--black)',
+          color: 'var(--chalk)',
+          padding: 'clamp(50px,7vh,90px) clamp(20px,4vw,56px)',
+        }}
+      >
+        <div
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            alignItems: 'center',
+            gap: 'clamp(24px,4vw,70px)',
+          }}
+        >
+          <div style={{ flex: '0 0 auto', width: 'clamp(260px,30vw,430px)' }}>
+            <Reveal>
+              <div className="kicker kicker--chalk">Der Plan</div>
+            </Reveal>
+            <Reveal delay={60}>
+              <h2
+                style={{
+                  fontFamily: 'var(--font-anton)',
+                  fontSize: 'clamp(30px,4.5vw,64px)',
+                  lineHeight: 0.95,
+                  textTransform: 'uppercase',
+                }}
+              >
+                So kommst du<br />
+                <span style={{ color: 'transparent', WebkitTextStroke: '2px var(--chalk)' }}>
+                  Run the Ramp.
+                </span>
+              </h2>
+            </Reveal>
+            <Reveal delay={120}>
+              <div
+                style={{
+                  marginTop: 34,
+                  borderTop: '1.5px solid rgba(244,241,235,0.18)',
+                  fontFamily: 'var(--font-ibm-plex-mono)',
+                  fontSize: 12,
+                  letterSpacing: '0.14em',
+                }}
+              >
+                {[
+                  { k: 'OBJEKT', v: 'ENTER TECHNIKWELT, DERENDINGEN' },
+                  { k: 'ZUGANG', v: 'RAMPE — AUSSEN UMLAUFEND' },
+                  { k: 'ZIEL', v: 'PARKDECK, ZUOBERST' },
+                  { k: 'EXIT', v: 'GLEICHE RAMPE RUNTER. ABKLATSCHEN.' },
+                ].map(({ k, v }) => (
+                  <div
+                    key={k}
+                    style={{
+                      display: 'flex',
+                      gap: 18,
+                      padding: '12px 2px',
+                      borderBottom: '1.5px solid rgba(244,241,235,0.18)',
+                    }}
+                  >
+                    <span style={{ color: 'var(--ash)', flex: '0 0 72px' }}>{k}</span>
+                    <span>{v}</span>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+            <Reveal delay={160}>
+              <div
+                style={{
+                  fontFamily: 'var(--font-ibm-plex-mono)',
+                  fontSize: 11,
+                  letterSpacing: '0.25em',
+                  color: 'var(--ash)',
+                  marginTop: 26,
+                }}
+              >
+                ZIEHEN ZUM DREHEN ↻
+              </div>
+            </Reveal>
+          </div>
+
+          <div style={{ flex: 1, minWidth: 280, height: 'min(86vh, 620px)' }}>
+            <EnterBuildingPlan />
+          </div>
         </div>
       </section>
 

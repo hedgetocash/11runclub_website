@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
-import LogoIcon from '../reference/logo-icon-square.jpg'
+import LogoImg from '../reference/logo.jpg'
 
 export default function Nav() {
   const pathname = usePathname()
@@ -12,31 +12,12 @@ export default function Nav() {
 
   return (
     <nav className="nav">
-      <Link href="/" className="flex items-center gap-3 no-underline text-[var(--black)]">
-        <span
-          style={{
-            width: 60,
-            height: 60,
-            display: 'block',
-            position: 'relative',
-            overflow: 'hidden',
-            transform: 'rotate(-4deg)',
-            flexShrink: 0,
-          }}
-        >
-          <Image src={LogoIcon} alt="11RUNCLUB Logo" fill sizes="60px" style={{ objectFit: 'cover' }} />
-        </span>
-        <span
-          style={{
-            fontFamily: 'var(--font-anton)',
-            fontWeight: 400,
-            letterSpacing: '0.02em',
-            fontSize: 22,
-            textTransform: 'uppercase',
-          }}
-        >
-          11RUNCLUB
-        </span>
+      <Link href="/" className="flex items-center no-underline text-[var(--black)]">
+        <Image
+          src={LogoImg}
+          alt="11RUNCLUB"
+          style={{ height: 56, width: 56, display: 'block' }}
+        />
       </Link>
 
       <div className="flex gap-[clamp(14px,2.5vw,34px)] items-center">
