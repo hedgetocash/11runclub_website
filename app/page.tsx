@@ -6,6 +6,7 @@ import Image from 'next/image'
 import ShirtImg from '../reference/shirt.jpg'
 import FrontRunImg from '../reference/frontrun.jpg'
 import RunLineImg from '../reference/runline.jpg'
+import RouteMapImg from '../reference/route-map.jpg'
 
 /* ─── Countdown ─────────────────────────────────────────────────────────────── */
 function nextTuesday() {
@@ -195,72 +196,42 @@ function RouteMap() {
 				<span>BEISPIEL-ROUTE — VERENASCHLUCHT-RUNDE</span>
 				<span>±7.5 KM</span>
 			</div>
-			<svg
-				viewBox="0 0 560 320"
-				style={{ width: '100%', height: 'auto' }}
+			<div
+				style={{
+					position: 'relative',
+					width: '100%',
+					aspectRatio: '1179 / 1353',
+					borderRadius: 12,
+					overflow: 'hidden',
+				}}
 			>
-				{/* Höhenlinien Jurahang */}
-				<g
-					fill="none"
-					stroke="rgba(244,241,235,0.13)"
-					strokeWidth="1.5"
+				<Image
+					src={RouteMapImg}
+					alt="Beispielroute Solothurn — Werkhof, Wengistein, Feldbrunnen-St. Niklaus"
+					fill
+					sizes="(max-width: 860px) 100vw, 500px"
+					style={{ objectFit: 'cover' }}
+				/>
+				<svg
+					viewBox="0 0 1179 1353"
+					style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}
 				>
-					<path d="M-10,150 C70,142 130,138 168,132 C180,128 188,112 194,100 C198,92 206,88 214,90 C222,92 228,104 234,116 C244,132 300,124 360,116 C430,108 500,104 570,100" />
-					<path d="M-10,122 C70,114 130,110 164,104 C176,100 184,80 190,64 C194,52 204,48 212,50 C220,52 226,66 232,82 C240,98 300,94 360,86 C430,78 500,74 570,70" />
-					<path d="M-10,94 C70,86 130,80 160,74 C172,70 180,46 186,30 C190,18 202,14 210,16 C218,18 224,34 230,52 C238,68 300,62 360,54 C430,46 500,42 570,38" />
-				</g>
-				{/* Aare */}
-				<path
-					d="M-10,268 C90,262 200,254 270,240 C310,230 345,213 380,180 C415,150 445,130 480,112"
-					fill="none"
-					stroke="rgba(30,59,209,0.45)"
-					strokeWidth="20"
-					strokeLinecap="round"
-				/>
-				{/* Route line */}
-				<path
-					className="route-line"
-					d="M148,237 C160,240 172,243 185,245 C202,244 220,243 237,240 C255,237 272,231 290,222 C305,215 320,209 332,198 C340,191 347,186 351,178 C354,160 351,142 348,124 C344,110 334,101 322,93 C313,86 304,80 295,74 C281,66 267,60 253,54 C240,48 226,41 214,36 C212,44 213,51 211,59 C208,67 206,74 203,82 C201,89 198,96 196,104 C193,112 190,119 187,127 C177,140 166,153 155,166 C146,176 137,185 130,194 C128,203 130,211 132,220 C136,227 141,232 148,237 Z"
-				/>
-				{/* Richtungspfeile */}
-				<g fill="#EE3829">
+					{/* Route line — folgt der auf dem Kartenbild eingezeichneten Strecke */}
 					<path
-						d="M0,-4.5 L8,0 L0,4.5"
-						transform="translate(264,232) rotate(-19)"
+						className="route-line"
+						d="M505,1075 C500,1020 510,970 520,930 C535,895 545,880 548,865 C540,800 525,750 522,700 C520,650 520,580 522,520 C525,480 545,460 565,435 C595,400 615,360 628,270 C632,230 645,160 660,90 C685,65 705,55 730,58 C760,62 790,45 820,58 C845,68 865,45 900,58 C935,72 960,90 985,120 C1015,150 1050,180 1075,215 C1090,240 1092,255 1085,265 C1050,270 1010,268 975,270 C935,272 895,285 860,300 C825,300 790,298 755,285 C715,270 680,330 655,390 C625,440 590,470 565,510 C545,545 530,600 525,650 C520,680 500,660 460,645 C410,625 355,600 300,585 C255,595 215,610 180,640 C150,665 130,695 122,730 C118,760 128,790 150,825 C172,850 190,875 175,900 C155,915 140,940 138,975 C137,1005 160,1040 190,1070 C210,1085 225,1092 240,1090 C270,1120 300,1150 345,1175 C380,1188 410,1170 435,1145 C455,1120 470,1100 485,1088 C495,1082 500,1078 505,1075 Z"
 					/>
-					<path
-						d="M0,-4.5 L8,0 L0,4.5"
-						transform="translate(350,158) rotate(-93)"
-					/>
-					<path
-						d="M0,-4.5 L8,0 L0,4.5"
-						transform="translate(199,93) rotate(108)"
-					/>
-					<path
-						d="M0,-4.5 L8,0 L0,4.5"
-						transform="translate(131,207) rotate(85)"
-					/>
-				</g>
-				{/* Start/Ziel */}
-				<circle
-					cx="148"
-					cy="237"
-					r="9"
-					fill="none"
-					stroke="#EE3829"
-					strokeWidth="2"
-				/>
-				<circle cx="148" cy="237" r="4.5" fill="#EE3829" />
-				{/* Läufer-Punkt */}
-				<circle r="5" fill="#F4F1EB" stroke="#EE3829" strokeWidth="3">
-					<animateMotion
-						dur="18s"
-						repeatCount="indefinite"
-						begin="2.5s"
-						path="M148,237 C160,240 172,243 185,245 C202,244 220,243 237,240 C255,237 272,231 290,222 C305,215 320,209 332,198 C340,191 347,186 351,178 C354,160 351,142 348,124 C344,110 334,101 322,93 C313,86 304,80 295,74 C281,66 267,60 253,54 C240,48 226,41 214,36 C212,44 213,51 211,59 C208,67 206,74 203,82 C201,89 198,96 196,104 C193,112 190,119 187,127 C177,140 166,153 155,166 C146,176 137,185 130,194 C128,203 130,211 132,220 C136,227 141,232 148,237 Z"
-					/>
-				</circle>
-			</svg>
+					{/* Läufer-Punkt */}
+					<circle r="9" fill="#F4F1EB" stroke="#EE3829" strokeWidth="4">
+						<animateMotion
+							dur="15s"
+							repeatCount="indefinite"
+							begin="2.5s"
+							path="M505,1075 C500,1020 510,970 520,930 C535,895 545,880 548,865 C540,800 525,750 522,700 C520,650 520,580 522,520 C525,480 545,460 565,435 C595,400 615,360 628,270 C632,230 645,160 660,90 C685,65 705,55 730,58 C760,62 790,45 820,58 C845,68 865,45 900,58 C935,72 960,90 985,120 C1015,150 1050,180 1075,215 C1090,240 1092,255 1085,265 C1050,270 1010,268 975,270 C935,272 895,285 860,300 C825,300 790,298 755,285 C715,270 680,330 655,390 C625,440 590,470 565,510 C545,545 530,600 525,650 C520,680 500,660 460,645 C410,625 355,600 300,585 C255,595 215,610 180,640 C150,665 130,695 122,730 C118,760 128,790 150,825 C172,850 190,875 175,900 C155,915 140,940 138,975 C137,1005 160,1040 190,1070 C210,1085 225,1092 240,1090 C270,1120 300,1150 345,1175 C380,1188 410,1170 435,1145 C455,1120 470,1100 485,1088 C495,1082 500,1078 505,1075 Z"
+						/>
+					</circle>
+				</svg>
+			</div>
 			<p
 				style={{
 					fontFamily: 'var(--font-ibm-plex-mono)',
@@ -279,10 +250,10 @@ function RouteMap() {
 			/>
 			<style>{`
         .route-line {
-          fill: none; stroke: #EE3829; stroke-width: 3.5;
+          fill: none; stroke: #EE3829; stroke-width: 6;
           stroke-linecap: round; stroke-linejoin: round;
-          stroke-dasharray: 1050; stroke-dashoffset: 1050;
-          transition: stroke-dashoffset 2.4s cubic-bezier(.45,0,.2,1) .3s;
+          stroke-dasharray: 6500; stroke-dashoffset: 6500;
+          transition: stroke-dashoffset 2.8s cubic-bezier(.45,0,.2,1) .3s;
         }
         .next-map.in .route-line { stroke-dashoffset: 0; }
       `}</style>
@@ -1177,13 +1148,14 @@ export default function HomePage() {
 						letterSpacing: '-0.005em',
 						fontWeight: 400,
 						maxWidth: '12ch',
+						color: 'var(--chalk)',
 					}}
 				>
 					Dein
 					<br />
 					<span
 						style={{
-							color: 'var(--grey)',
+							color: 'transparent',
 							WebkitTextStroke: '2.5px var(--chalk)',
 						}}
 					>
@@ -1481,20 +1453,21 @@ export default function HomePage() {
 					className="hidden md:block"
 					style={{
 						position: 'absolute',
-						top: '5%',
-						right: '4%',
-						width: 350,
+						top: '2%',
+						right: '2%',
+						width: 'clamp(260px,34vw,460px)',
 						aspectRatio: '3 / 4',
 						borderRadius: 16,
 						overflow: 'hidden',
-						boxShadow: '0 20px 40px rgba(13,12,11,0.25)',
+						opacity: 0.35,
+						zIndex: -1,
 					}}
 				>
 					<Image
 						src={ShirtImg}
 						alt="11RUNCLUB Shirt"
 						fill
-						sizes="350px"
+						sizes="460px"
 						style={{ objectFit: 'cover' }}
 					/>
 				</div>
