@@ -1183,7 +1183,7 @@ export default function HomePage() {
 					<br />
 					<span
 						style={{
-							color: 'transparent',
+							color: 'var(--grey)',
 							WebkitTextStroke: '2.5px var(--chalk)',
 						}}
 					>
