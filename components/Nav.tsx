@@ -76,12 +76,10 @@ export default function Nav() {
           Partner
         </Link>
         <a
-          href="https://instagram.com/11.runclub"
-          target="_blank"
-          rel="noopener noreferrer"
+          href={isHome ? '#faq' : '/#faq'}
           className="no-underline text-[var(--black)] text-sm font-semibold tracking-[0.04em] hover:text-[var(--red)] transition-colors hidden md:block"
         >
-          @11.runclub
+          FAQ
         </a>
         <Link
           href={isHome ? '#join' : '/#join'}
@@ -205,19 +203,19 @@ export default function Nav() {
             Partner
           </Link>
           <a
-            href="https://instagram.com/11.runclub"
-            target="_blank"
-            rel="noopener noreferrer"
+            href={isHome ? '#faq' : '/#faq'}
+            onClick={() => setOpen(false)}
             style={{
-              fontFamily: 'var(--font-ibm-plex-mono)',
-              fontSize: 14,
-              letterSpacing: '0.08em',
-              color: 'var(--ash)',
+              fontFamily: 'var(--font-anton)',
+              fontSize: 32,
+              textTransform: 'uppercase',
+              color: 'var(--black)',
               textDecoration: 'none',
-              padding: '20px 0 0',
+              padding: '16px 0',
+              borderBottom: '1px solid rgba(13,12,11,0.12)',
             }}
           >
-            @11.runclub ↗
+            FAQ
           </a>
           <Link
             href={isHome ? '#join' : '/#join'}

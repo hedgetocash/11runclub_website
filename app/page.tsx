@@ -7,6 +7,7 @@ import ShirtImg from '../reference/shirt.jpg'
 import FrontRunImg from '../reference/frontrun.jpg'
 import RunLineImg from '../reference/runline.jpg'
 import LandingHeroImg from '../reference/landing-hero.jpg'
+import SolothurnCityImg from '../reference/solothurn-city.jpg'
 
 /* ─── Countdown ─────────────────────────────────────────────────────────────── */
 function nextTuesday() {
@@ -194,7 +195,7 @@ function RouteMap() {
 				}}
 			>
 				<span>BEISPIEL-ROUTE</span>
-				<span>±7.5 KM</span>
+				<span>6 KM</span>
 			</div>
 			<div
 				style={{
@@ -208,7 +209,12 @@ function RouteMap() {
 			>
 				<svg
 					viewBox="0 0 713 701"
-					style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}
+					style={{
+						position: 'absolute',
+						inset: 0,
+						width: '100%',
+						height: '100%',
+					}}
 				>
 					{/* Imaginäre Karte — abstrahiertes Strassenraster + Fluss, keine echten Ortsdaten */}
 					<path
@@ -218,7 +224,11 @@ function RouteMap() {
 						strokeWidth="26"
 						strokeLinecap="round"
 					/>
-					<g fill="none" stroke="rgba(244,241,235,0.13)" strokeWidth="1.5">
+					<g
+						fill="none"
+						stroke="rgba(244,241,235,0.13)"
+						strokeWidth="1.5"
+					>
 						<path d="M80,-10 C95,120 60,250 100,380 C130,470 90,590 110,711" />
 						<path d="M190,-10 C175,110 215,240 180,370 C155,460 200,580 175,711" />
 						<path d="M300,-10 C315,130 285,260 310,390 C330,480 295,600 315,711" />
@@ -232,9 +242,27 @@ function RouteMap() {
 						<path d="M-10,600 C130,615 260,585 390,610 C480,628 600,595 723,615" />
 					</g>
 					<g fill="rgba(30,140,90,0.13)">
-						<ellipse cx="120" cy="130" rx="70" ry="50" transform="rotate(-12 120 130)" />
-						<ellipse cx="600" cy="470" rx="85" ry="60" transform="rotate(8 600 470)" />
-						<ellipse cx="560" cy="120" rx="55" ry="40" transform="rotate(15 560 120)" />
+						<ellipse
+							cx="120"
+							cy="130"
+							rx="70"
+							ry="50"
+							transform="rotate(-12 120 130)"
+						/>
+						<ellipse
+							cx="600"
+							cy="470"
+							rx="85"
+							ry="60"
+							transform="rotate(8 600 470)"
+						/>
+						<ellipse
+							cx="560"
+							cy="120"
+							rx="55"
+							ry="40"
+							transform="rotate(15 560 120)"
+						/>
 					</g>
 					{/* Route line — nachgezeichnet von einem Lauf, den wir vor ein paar Wochen gemacht haben */}
 					<path
@@ -242,7 +270,12 @@ function RouteMap() {
 						d="M230,552 L210,530 L190,500 L175,470 L162,445 L150,430 L162,417 L142,405 L130,390 L137,376 L124,357 L130,345 L148,332 L175,315 L205,296 L230,279 L255,263 L280,249 L300,240 L302,216 L306,191 L317,166 L331,146 L346,129 L361,114 L378,99 L395,86 L410,76 L425,69 L438,64 L449,73 L459,66 L476,86 L496,106 L516,126 L531,146 L541,153 L524,159 L505,161 L486,169 L461,173 L441,171 L421,179 L401,186 L386,196 L376,216 L369,241 L363,261 L351,286 L339,311 L326,336 L316,361 L309,386 L301,406 L296,416 L301,431 L311,451 L321,463 L311,451 L301,431 L296,416 L301,406 L309,386 L316,361 L326,336 L339,311 L351,286 L363,261 L369,241 L376,216 L386,196 L401,186 L421,179 L441,171 L461,173 L486,169 L505,161 L524,159 L541,153 L531,146 L516,126 L496,106 L476,86 L459,66 L449,73 L438,64 L425,69 L410,76 L395,86 L378,99 L361,114 L346,129 L331,146 L317,166 L306,191 L302,216 L300,240 L280,249 L255,263 L230,279 L205,296 L175,315 L148,332 L130,345 L124,357 L137,376 L130,390 L142,405 L162,417 L150,430 L162,445 L175,470 L190,500 L210,530 L230,552"
 					/>
 					{/* Läufer-Punkt */}
-					<circle r="9" fill="#F4F1EB" stroke="#EE3829" strokeWidth="4">
+					<circle
+						r="9"
+						fill="#F4F1EB"
+						stroke="#EE3829"
+						strokeWidth="4"
+					>
 						<animateMotion
 							dur="15s"
 							repeatCount="indefinite"
@@ -261,8 +294,8 @@ function RouteMap() {
 					marginTop: 10,
 				}}
 			>
-				→ Beispielroute: einer unserer Läufe der letzten Wochen.
-				Die echte Strecke gibts am Start.
+				→ Beispielroute: einer unserer Läufe der letzten Wochen. Die
+				echte Strecke gibts am Start.
 			</p>
 			<div
 				className="checker"
@@ -1002,6 +1035,7 @@ function FAQSection() {
 
 	return (
 		<section
+			id="faq"
 			style={{
 				background: 'var(--black)',
 				color: 'var(--chalk)',
@@ -1124,19 +1158,30 @@ export default function HomePage() {
 					overflow: 'hidden',
 					color: 'var(--black)',
 					background: 'var(--chalk)',
+					zIndex: 0,
 				}}
 			>
 				{/* Hero-Video folgt, sobald die komprimierte RunKanti.MOV bereitsteht:
 				    <video autoPlay loop muted playsInline src="/RunKanti.MOV"
 				      className="object-cover w-full h-full absolute inset-0 -z-20" /> */}
-				<div style={{ position: 'absolute', inset: 0, opacity: 0.35, zIndex: -1 }}>
+				<div
+					style={{
+						position: 'absolute',
+						inset: 0,
+						opacity: 0.5,
+						zIndex: -2,
+					}}
+				>
 					<Image
-						src={LandingHeroImg}
+						src={SolothurnCityImg}
 						alt=""
 						fill
 						sizes="100vw"
 						priority
-						style={{ objectFit: 'cover' }}
+						style={{
+							objectFit: 'cover',
+							filter: 'grayscale(1) contrast(0.92) brightness(1.15)',
+						}}
 					/>
 				</div>
 				<HeroEleven />
@@ -1253,10 +1298,9 @@ export default function HomePage() {
 				<div
 					style={{
 						display: 'grid',
-						gridTemplateColumns:
-							'clamp(1fr,1.1fr,1fr) clamp(1fr,.9fr,1fr)',
+						gridTemplateColumns: '1fr 1fr',
 						gap: 'clamp(30px,5vw,80px)',
-						alignItems: 'center',
+						alignItems: 'start',
 						marginTop: 50,
 					}}
 				>
@@ -1280,13 +1324,13 @@ export default function HomePage() {
 										sub: 'Klosterplatz 6, 4500 Solothurn',
 									},
 									{ k: 'DISTANZ', v: '6 & 10 KM' },
-									{ k: 'PACE', v: '6:00 oder 5:30 MIN/KM' },
+									{ k: 'PACE', v: '6:00 & 5:30 MIN/KM' },
 								].map(({ k, v, sub }) => (
 									<div
 										key={k}
 										style={{
 											display: 'flex',
-											justifyContent: 'space-between',
+											justifyContent: 'flex-start',
 											alignItems: 'baseline',
 											padding: '20px 4px',
 											borderBottom:
@@ -1301,6 +1345,7 @@ export default function HomePage() {
 												fontSize: 15,
 												letterSpacing: '0.2em',
 												color: 'var(--ash)',
+												flex: '0 0 100px',
 											}}
 										>
 											{k}
@@ -1311,7 +1356,7 @@ export default function HomePage() {
 												fontSize:
 													'clamp(24px,3.2vw,42px)',
 												textTransform: 'uppercase',
-												textAlign: 'right',
+												textAlign: 'left',
 											}}
 										>
 											{v}
@@ -1359,109 +1404,153 @@ export default function HomePage() {
 					padding: 'clamp(70px,10vw,140px) clamp(20px,4vw,56px)',
 				}}
 			>
-				<Reveal>
-					<div className="kicker">Was wir machen</div>
-				</Reveal>
-				<Reveal delay={60}>
-					<h2
-						style={{
-							fontFamily: 'var(--font-anton)',
-							fontSize: 'clamp(44px,7vw,104px)',
-							lineHeight: 0.95,
-							textTransform: 'uppercase',
-						}}
-					>
-						Mehr als nur
-						<br />
-						geradeaus laufen.
-					</h2>
-				</Reveal>
-				<Reveal delay={120}>
-					<p
-						style={{
-							maxWidth: 640,
-							fontSize: 17,
-							lineHeight: 1.6,
-							color: '#444',
-							marginTop: 24,
-						}}
-					>
-						Dienstags wechseln sich lockerer Social Run und Workout
-						ab — Hill Reps, Progression Run oder Out &amp; Back.
-						Einmal im Monat kommt an einem Samstag der Longrun dazu.
-					</p>
-				</Reveal>
-
 				<div
 					style={{
 						display: 'grid',
-						gridTemplateColumns:
-							'repeat(auto-fit, minmax(260px, 1fr))',
-						gap: 16,
-						marginTop: 56,
-						maxWidth: 620,
+						gridTemplateColumns: '1.1fr 1fr',
+						gap: 'clamp(30px,5vw,70px)',
+						alignItems: 'start',
 					}}
+					className="formats-grid"
 				>
-					<Reveal>
-						<RunStack />
-					</Reveal>
-
-					<Reveal delay={60}>
-						<div
-							className="run-card"
-							style={{
-								background: 'var(--black)',
-								color: 'var(--chalk)',
-								aspectRatio: '3 / 4.1',
-								borderRadius: 16,
-								padding: 22,
-								display: 'flex',
-								flexDirection: 'column',
-								justifyContent: 'space-between',
-								position: 'relative',
-								overflow: 'hidden',
-								cursor: 'default',
-							}}
-						>
-							<span
+					<div>
+						<Reveal>
+							<div className="kicker">Was wir machen</div>
+						</Reveal>
+						<Reveal delay={60}>
+							<h2
 								style={{
-									fontFamily: 'var(--font-ibm-plex-mono)',
-									fontSize: 11,
-									letterSpacing: '0.2em',
-									opacity: 0.85,
+									fontFamily: 'var(--font-anton)',
+									fontSize: 'clamp(44px,7vw,104px)',
+									lineHeight: 0.95,
+									textTransform: 'uppercase',
 								}}
 							>
-								1× IM MONAT
-							</span>
-							<div className="ring" />
-							<div>
-								<h3
-									style={{
-										fontFamily: 'var(--font-anton)',
-										fontWeight: 400,
-										fontSize: 'clamp(34px,3.4vw,52px)',
-										lineHeight: 0.92,
-										textTransform: 'uppercase',
-										marginTop: 'auto',
-									}}
-								>
-									Longrun
-								</h3>
+								Mehr als nur
+								<br />
+								geradeaus laufen.
+							</h2>
+						</Reveal>
+						<Reveal delay={120}>
+							<p
+								style={{
+									maxWidth: 640,
+									fontSize: 17,
+									lineHeight: 1.6,
+									color: '#444',
+									marginTop: 24,
+								}}
+							>
+								Dienstags wechseln sich lockerer Social Run und
+								Workout ab — Hill Reps, Progression Run oder Out
+								&amp; Back. Einmal im Monat kommt an einem
+								Samstag der Longrun dazu.
+							</p>
+						</Reveal>
+
+						<div
+							style={{
+								display: 'grid',
+								gridTemplateColumns:
+									'repeat(auto-fit, minmax(260px, 1fr))',
+								gap: 16,
+								marginTop: 56,
+								maxWidth: 620,
+							}}
+						>
+							<Reveal>
+								<RunStack />
+							</Reveal>
+
+							<Reveal delay={60}>
 								<div
+									className="run-card"
 									style={{
-										fontFamily: 'var(--font-ibm-plex-mono)',
-										fontSize: 12,
-										letterSpacing: '0.12em',
-										marginTop: 14,
-										opacity: 0.85,
+										background: 'var(--black)',
+										color: 'var(--chalk)',
+										aspectRatio: '3 / 4.1',
+										borderRadius: 16,
+										padding: 22,
+										display: 'flex',
+										flexDirection: 'column',
+										justifyContent: 'space-between',
+										position: 'relative',
+										overflow: 'hidden',
+										cursor: 'default',
 									}}
 								>
-									SA · 09:30 · 10 ODER 15 KM
+									<span
+										style={{
+											fontFamily:
+												'var(--font-ibm-plex-mono)',
+											fontSize: 11,
+											letterSpacing: '0.2em',
+											opacity: 0.85,
+										}}
+									>
+										1× IM MONAT
+									</span>
+									<div className="ring" />
+									<div>
+										<h3
+											style={{
+												fontFamily: 'var(--font-anton)',
+												fontWeight: 400,
+												fontSize:
+													'clamp(34px,3.4vw,52px)',
+												lineHeight: 0.92,
+												textTransform: 'uppercase',
+												marginTop: 'auto',
+											}}
+										>
+											Longrun
+										</h3>
+										<div
+											style={{
+												fontFamily:
+													'var(--font-ibm-plex-mono)',
+												fontSize: 12,
+												letterSpacing: '0.12em',
+												marginTop: 14,
+												opacity: 0.85,
+											}}
+										>
+											SA · 09:30 · 10 ODER 15 KM
+										</div>
+									</div>
 								</div>
-							</div>
+							</Reveal>
+						</div>
+					</div>
+
+					<Reveal delay={100} className="formats-photo">
+						<div
+							style={{
+								position: 'relative',
+								width: '100%',
+								height: '100%',
+								minHeight: 420,
+								borderRadius: 24,
+								overflow: 'hidden',
+							}}
+						>
+							<Image
+								src={LandingHeroImg}
+								alt="11RUNCLUB Läufer:innen auf einem Waldweg"
+								fill
+								sizes="(max-width: 900px) 100vw, 50vw"
+								style={{ objectFit: 'cover' }}
+							/>
 						</div>
 					</Reveal>
 				</div>
+
+				<style>{`
+					@media (max-width: 900px) {
+						.formats-grid { grid-template-columns: 1fr !important; }
+						.formats-photo { display: none; }
+					}
+				`}</style>
 			</section>
 
 			{/* ── Pinned Event ── */}
@@ -1475,6 +1564,7 @@ export default function HomePage() {
 					textAlign: 'center',
 					position: 'relative',
 					overflow: 'hidden',
+					zIndex: 0,
 				}}
 			>
 				<div

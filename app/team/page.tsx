@@ -483,7 +483,7 @@ export default function TeamPage() {
 									}}
 								>
 									4 Gründer und 1 gemeinsames Ziel:{' '}
-									<span style={{ color: 'var(--red)' }}>
+									<span style={{ color: 'var(--black)' }}>
 										Solothurn zum Laufen zu bringen.
 									</span>
 								</p>
@@ -492,24 +492,36 @@ export default function TeamPage() {
 					</div>
 
 					<Reveal delay={120}>
-						<div
-							style={{
-								position: 'relative',
-								maxWidth: 480,
-								margin: '0 auto',
-								aspectRatio: '3 / 4',
-								borderRadius: 24,
-								overflow: 'hidden',
-							}}
-						>
-							<Image
-								src={TeamPhoto}
-								alt="Noa, Emma, Nils und Anna — die vier Gründer:innen des 11RUNCLUB"
-								fill
-								sizes="(max-width: 900px) 100vw, 480px"
-								style={{ objectFit: 'cover' }}
-								priority
-							/>
+						<div style={{ maxWidth: 480, margin: '0 auto' }}>
+							<div
+								style={{
+									position: 'relative',
+									aspectRatio: '3 / 4',
+									borderRadius: 24,
+									overflow: 'hidden',
+								}}
+							>
+								<Image
+									src={TeamPhoto}
+									alt="Nils, Noa, Emma und Anna — die vier Gründer:innen des 11RUNCLUB"
+									fill
+									sizes="(max-width: 900px) 100vw, 480px"
+									style={{ objectFit: 'cover' }}
+									priority
+								/>
+							</div>
+							<div
+								style={{
+									fontFamily: 'var(--font-ibm-plex-mono)',
+									fontSize: 11,
+									letterSpacing: '0.14em',
+									color: 'var(--ash)',
+									marginTop: 10,
+									textAlign: 'center',
+								}}
+							>
+								V.L.N.R. NILS, NOA, EMMA &amp; ANNA
+							</div>
 						</div>
 					</Reveal>
 				</div>
