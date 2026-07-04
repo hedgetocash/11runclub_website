@@ -1483,11 +1483,10 @@ export default function HomePage() {
 						position: 'absolute',
 						top: '8%',
 						right: '7%',
-						width: 150,
+						width: 350,
 						aspectRatio: '3 / 4',
 						borderRadius: 16,
 						overflow: 'hidden',
-						transform: 'rotate(6deg)',
 						boxShadow: '0 20px 40px rgba(13,12,11,0.25)',
 					}}
 				>
@@ -1495,7 +1494,7 @@ export default function HomePage() {
 						src={ShirtImg}
 						alt="11RUNCLUB Shirt"
 						fill
-						sizes="150px"
+						sizes="350px"
 						style={{ objectFit: 'cover' }}
 					/>
 				</div>
