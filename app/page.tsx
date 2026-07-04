@@ -6,6 +6,7 @@ import Image from 'next/image'
 import ShirtImg from '../reference/shirt.jpg'
 import FrontRunImg from '../reference/frontrun.jpg'
 import RunLineImg from '../reference/runline.jpg'
+import LandingHeroImg from '../reference/landing-hero.jpg'
 
 /* ─── Countdown ─────────────────────────────────────────────────────────────── */
 function nextTuesday() {
@@ -1127,9 +1128,17 @@ export default function HomePage() {
 			>
 				{/* Hero-Video folgt, sobald die komprimierte RunKanti.MOV bereitsteht:
 				    <video autoPlay loop muted playsInline src="/RunKanti.MOV"
-				      className="object-cover w-full h-full absolute inset-0 -z-20" />
-				    <div aria-hidden="true" className="absolute inset-0 -z-10"
-				      style={{ background: 'rgba(13,12,11,0.55)' }} /> */}
+				      className="object-cover w-full h-full absolute inset-0 -z-20" /> */}
+				<div style={{ position: 'absolute', inset: 0, opacity: 0.35, zIndex: -1 }}>
+					<Image
+						src={LandingHeroImg}
+						alt=""
+						fill
+						sizes="100vw"
+						priority
+						style={{ objectFit: 'cover' }}
+					/>
+				</div>
 				<HeroEleven />
 				<div
 					style={{
