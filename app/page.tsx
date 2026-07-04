@@ -1481,8 +1481,8 @@ export default function HomePage() {
 					className="hidden md:block"
 					style={{
 						position: 'absolute',
-						top: '8%',
-						right: '7%',
+						top: '5%',
+						right: '4%',
 						width: 350,
 						aspectRatio: '3 / 4',
 						borderRadius: 16,
