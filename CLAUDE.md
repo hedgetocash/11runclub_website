@@ -23,10 +23,10 @@ Instagram-Auftritt und Linktree des Clubs recherchiert. Lies zuerst
 ## Fakten über den Club (Quelle: Instagram-Bio & Posts, Juni 2026)
 
 - „Dein RUNCLUB in Solothurn." — über 900 Follower, gegründet ~2025 (Stand Juli 2026)
-- **Tuesday Run:** jeden Dienstag 18:30, Treffpunkt SOL-ID Athletes World, Klosterplatz 6,
-  4500 Solothurn. Distanzen 6 & 10 km, Pace 6:00 bzw. 5:30 min/km. Dienstags wechseln sich
-  der lockere Tuesday/Social Run und ein Workout ab (Hill Reps, Progression Run oder
-  Out & Back) — nicht beides gleichzeitig.
+- **Social Run** (früher "Tuesday Run", Juli 2026 umbenannt): jeden Dienstag 18:30,
+  Treffpunkt SOL-ID Athletes World, Klosterplatz 6, 4500 Solothurn. Distanzen 6 & 10 km,
+  Pace 6:00 bzw. 5:30 min/km. Dienstags wechseln sich der lockere Social Run und ein
+  Workout ab (Hill Reps, Progression Run oder Out & Back) — nicht beides gleichzeitig.
 - **Longrun:** 1× im Monat an einem Samstag, 09:30, wahlweise 10 oder 15 km, Start vor dem SOL-ID
 - **Keine Anmeldung nötig** (für die wöchentlichen Runs) — zentrale Botschaft, immer kommunizieren
 - Slogan: **RUN TOGETHER. IMPROVE TOGETHER. ENJOY TOGETHER.**

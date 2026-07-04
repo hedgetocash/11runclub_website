@@ -5,7 +5,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 import SolidImg from '../../reference/partner-solid.jpg'
 import PeaqImg from '../../reference/partner-peaq.jpg'
-import PeaqBottlesImg from '../../reference/peaq-bottles.jpg'
 import FilandiaImg from '../../reference/partner-filandia.jpg'
 import SteinerImg from '../../reference/partner-steiner.jpg'
 
@@ -57,11 +56,13 @@ function StatBlock({
 	label,
 	sub,
 	accent = 'var(--red)',
+	valSize = 'clamp(40px,6vw,80px)',
 }: {
 	val: string
 	label: string
 	sub?: string
 	accent?: string
+	valSize?: string
 }) {
 	return (
 		<div
@@ -73,9 +74,10 @@ function StatBlock({
 			<div
 				style={{
 					fontFamily: 'var(--font-anton)',
-					fontSize: 'clamp(40px,6vw,80px)',
+					fontSize: valSize,
 					lineHeight: 1,
 					color: accent,
+					overflowWrap: 'anywhere',
 				}}
 			>
 				{val}
@@ -103,80 +105,6 @@ function StatBlock({
 					{sub}
 				</div>
 			)}
-		</div>
-	)
-}
-
-/* ─── Offering Card ──────────────────────────────────────────────────────────── */
-function OfferingCard({
-	icon,
-	title,
-	description,
-	available,
-}: {
-	icon: string
-	title: string
-	description: string
-	available: boolean
-}) {
-	return (
-		<div
-			style={{
-				background: available
-					? 'var(--chalk)'
-					: 'rgba(244,241,235,0.04)',
-				border: available
-					? '1.5px solid var(--black)'
-					: '1.5px solid rgba(244,241,235,0.15)',
-				borderRadius: 20,
-				padding: 'clamp(24px,3vw,36px)',
-				position: 'relative',
-				opacity: available ? 1 : 0.65,
-			}}
-		>
-			{/* Status badge */}
-			<div
-				style={{
-					position: 'absolute',
-					top: 20,
-					right: 20,
-					fontFamily: 'var(--font-ibm-plex-mono)',
-					fontSize: 10,
-					letterSpacing: '0.15em',
-					padding: '4px 10px',
-					borderRadius: 999,
-					background: available
-						? 'var(--red)'
-						: 'rgba(244,241,235,0.15)',
-					color: available ? 'var(--chalk)' : 'rgba(244,241,235,0.5)',
-				}}
-			>
-				{available ? 'VERFÜGBAR' : 'VERGEBEN'}
-			</div>
-
-			<div style={{ fontSize: 36, marginBottom: 16 }}>{icon}</div>
-			<h3
-				style={{
-					fontFamily: 'var(--font-anton)',
-					fontSize: 'clamp(24px,2.5vw,36px)',
-					textTransform: 'uppercase',
-					lineHeight: 1,
-					color: available ? 'var(--black)' : 'var(--chalk)',
-					marginBottom: 12,
-				}}
-			>
-				{title}
-			</h3>
-			<p
-				style={{
-					fontSize: 15,
-					lineHeight: 1.65,
-					color: available ? '#555' : 'rgba(244,241,235,0.55)',
-					fontFamily: 'var(--font-archivo)',
-				}}
-			>
-				{description}
-			</p>
 		</div>
 	)
 }
@@ -262,7 +190,20 @@ export default function PartnerPage() {
 									WebkitTextStroke: '2px var(--chalk)',
 								}}
 							>
-								Community.
+								Community
+							</span>
+							<span
+								style={{
+									display: 'block',
+									fontFamily: 'var(--font-ibm-plex-mono)',
+									fontSize: 'clamp(16px,2vw,22px)',
+									letterSpacing: '0.14em',
+									textTransform: 'uppercase',
+									color: 'var(--chalk)',
+									marginTop: 16,
+								}}
+							>
+								— als Partner
 							</span>
 						</h1>
 					</Reveal>
@@ -349,430 +290,13 @@ export default function PartnerPage() {
 					</Reveal>
 					<Reveal delay={180}>
 						<StatBlock
-							val="SOL"
-							label="SOLOTHURN, CH"
+							val="Solothurn"
+							valSize="clamp(24px,3.6vw,44px)"
+							label="STANDORT"
 							sub="Lokal & regional"
 							accent="var(--ash)"
 						/>
 					</Reveal>
-				</div>
-			</section>
-
-			{/* ── Warum 11RUNCLUB? ── */}
-			<section
-				style={{
-					background: 'var(--chalk)',
-					padding: 'clamp(70px,10vw,140px) clamp(20px,4vw,56px)',
-				}}
-			>
-				<div style={{ maxWidth: 1100, margin: '0 auto' }}>
-					<Reveal>
-						<div className="kicker">Warum Partner werden</div>
-					</Reveal>
-					<Reveal delay={80}>
-						<h2
-							style={{
-								fontFamily: 'var(--font-anton)',
-								fontSize: 'clamp(44px,7vw,104px)',
-								lineHeight: 0.95,
-								textTransform: 'uppercase',
-								marginBottom: 24,
-							}}
-						>
-							Echte Menschen.
-							<br />
-							<span
-								style={{
-									color: 'transparent',
-									WebkitTextStroke: '2px var(--black)',
-								}}
-							>
-								Echte Runs.
-							</span>
-						</h2>
-					</Reveal>
-					<Reveal delay={140}>
-						<p
-							style={{
-								fontSize: 17,
-								lineHeight: 1.75,
-								color: '#555',
-								maxWidth: 660,
-								fontFamily: 'var(--font-archivo)',
-								marginBottom: 60,
-							}}
-						>
-							Unsere Community besteht nicht aus Followern — sie
-							besteht aus echten Läufer:innen, die jeden Dienstag
-							um 18:30 Uhr auftauchen, gemeinsam schwitzen und
-							danach gemeinsam feiern. Das ist deine Zielgruppe:
-							aktiv, lokal, loyal.
-						</p>
-					</Reveal>
-
-					<div
-						style={{
-							display: 'grid',
-							gridTemplateColumns:
-								'repeat(auto-fit, minmax(280px, 1fr))',
-							gap: 20,
-						}}
-					>
-						{[
-							{
-								num: '01',
-								title: 'Authentische Reichweite',
-								text: 'Keine bezahlten Follower, keine Fake-Engagement. Unsere 900+ Followers sind echte Läufer:innen aus der Region Solothurn und Umgebung.',
-							},
-							{
-								num: '02',
-								title: 'Wöchentlicher Kontakt',
-								text: 'Jeden Dienstag treffen sich 20–50+ Läufer:innen. Dein Produkt kommt dort an, wo es erlebt wird — nicht nur gesehen.',
-							},
-							{
-								num: '03',
-								title: 'Engagierte Zielgruppe',
-								text: 'Sportbegeisterte, die aktiv investieren: in Ausrüstung, Ernährung und Erlebnisse. Kaufkräftig, offen für neue Marken.',
-							},
-							{
-								num: '04',
-								title: 'Regional verankert',
-								text: 'Solothurn ist unsere Heimat. Lokale Präsenz schlägt nationale Werbung — deine Marke wird Teil der Stadtkultur.',
-							},
-						].map(({ num, title, text }, i) => (
-							<Reveal key={num} delay={i * 60}>
-								<div
-									style={{
-										padding: 'clamp(24px,3vw,36px)',
-										border: '1.5px solid rgba(13,12,11,0.1)',
-										borderRadius: 20,
-										height: '100%',
-									}}
-								>
-									<div
-										style={{
-											fontFamily:
-												'var(--font-ibm-plex-mono)',
-											fontSize: 11,
-											letterSpacing: '0.2em',
-											color: 'var(--red)',
-											marginBottom: 16,
-										}}
-									>
-										{num}
-									</div>
-									<h3
-										style={{
-											fontFamily: 'var(--font-anton)',
-											fontSize: 'clamp(22px,2.2vw,30px)',
-											textTransform: 'uppercase',
-											lineHeight: 1.05,
-											marginBottom: 14,
-										}}
-									>
-										{title}
-									</h3>
-									<p
-										style={{
-											fontSize: 15,
-											lineHeight: 1.65,
-											color: '#555',
-											fontFamily: 'var(--font-archivo)',
-										}}
-									>
-										{text}
-									</p>
-								</div>
-							</Reveal>
-						))}
-					</div>
-				</div>
-			</section>
-
-			{/* ── Was wir suchen ── */}
-			<section
-				style={{
-					background: 'var(--red)',
-					color: 'var(--chalk)',
-					padding: 'clamp(70px,10vw,140px) clamp(20px,4vw,56px)',
-					position: 'relative',
-					overflow: 'hidden',
-				}}
-			>
-				{/* Dashed ring decoration */}
-				<div
-					aria-hidden="true"
-					style={{
-						position: 'absolute',
-						right: '-8%',
-						top: '50%',
-						transform: 'translateY(-50%)',
-						width: 'clamp(200px,30vw,420px)',
-						aspectRatio: '1',
-						borderRadius: '50%',
-						border: '2px dashed rgba(244,241,235,0.2)',
-						animation: 'spin 50s linear infinite',
-					}}
-				/>
-
-				<div style={{ position: 'relative', maxWidth: 780 }}>
-					<Reveal>
-						<div className="kicker kicker--chalk">Gesuch</div>
-					</Reveal>
-					<Reveal delay={80}>
-						<h2
-							style={{
-								fontFamily: 'var(--font-anton)',
-								fontSize: 'clamp(44px,7vw,104px)',
-								lineHeight: 0.95,
-								textTransform: 'uppercase',
-								marginBottom: 28,
-							}}
-						>
-							Das suchen
-							<br />
-							wir.
-						</h2>
-					</Reveal>
-					<Reveal delay={140}>
-						<p
-							style={{
-								fontSize: 18,
-								lineHeight: 1.75,
-								color: 'rgba(244,241,235,0.88)',
-								fontFamily: 'var(--font-archivo)',
-								marginBottom: 48,
-							}}
-						>
-							Wir sind offen für Partnerschaften, die unserer
-							Community echten Mehrwert bringen. Unser Fokus liegt
-							auf{' '}
-							<strong
-								style={{
-									color: 'var(--chalk)',
-									fontWeight: 700,
-								}}
-							>
-								Food & Nutrition
-							</strong>{' '}
-							— Produkte, die Läufer:innen vor, während und nach
-							dem Run begleiten.
-						</p>
-					</Reveal>
-
-					<div
-						style={{
-							display: 'grid',
-							gridTemplateColumns:
-								'repeat(auto-fit, minmax(240px, 1fr))',
-							gap: 16,
-							marginBottom: 32,
-						}}
-					>
-						{[
-							{
-								emoji: '🍫',
-								title: 'Energieriegel',
-								desc: 'Bars, Gels, Pre-Workout Snacks für nach den Runs.',
-							},
-							{
-								emoji: '🌾',
-								title: 'Oats',
-								desc: 'Porridge, Müsli, Oat-Produkte',
-							},
-							{
-								emoji: '🥗',
-								title: 'Post-Run Recovery',
-								desc: 'Protein-Snacks, Recovery-Shakes, gesunde Mahlzeiten.',
-							},
-							{
-								emoji: '🧃',
-								title: 'Nutrition Brands',
-								desc: 'Sportnahrung, Supplements, natürliche Sportprodukte.',
-							},
-						].map(({ emoji, title, desc }, i) => (
-							<Reveal key={title} delay={i * 60}>
-								<div
-									style={{
-										background: 'rgba(244,241,235,0.12)',
-										border: '1px solid rgba(244,241,235,0.2)',
-										borderRadius: 16,
-										padding: '24px 22px',
-										backdropFilter: 'blur(8px)',
-									}}
-								>
-									<div
-										style={{
-											fontSize: 32,
-											marginBottom: 12,
-										}}
-									>
-										{emoji}
-									</div>
-									<h3
-										style={{
-											fontFamily: 'var(--font-anton)',
-											fontSize: 22,
-											textTransform: 'uppercase',
-											marginBottom: 8,
-										}}
-									>
-										{title}
-									</h3>
-									<p
-										style={{
-											fontSize: 14,
-											lineHeight: 1.6,
-											color: 'rgba(244,241,235,0.75)',
-											fontFamily: 'var(--font-archivo)',
-										}}
-									>
-										{desc}
-									</p>
-								</div>
-							</Reveal>
-						))}
-					</div>
-
-					{/* Hydration Notice */}
-					<Reveal delay={300}>
-						<div
-							style={{
-								background: 'rgba(13,12,11,0.3)',
-								border: '1px solid rgba(244,241,235,0.25)',
-								borderRadius: 16,
-								padding: '24px 28px',
-								display: 'flex',
-								gap: 20,
-								alignItems: 'flex-start',
-							}}
-						>
-							<div
-								style={{
-									position: 'relative',
-									width: 64,
-									aspectRatio: '3 / 4',
-									borderRadius: 10,
-									overflow: 'hidden',
-									flexShrink: 0,
-								}}
-							>
-								<Image
-									src={PeaqBottlesImg}
-									alt="PEAQ hydration Getränke"
-									fill
-									sizes="64px"
-									style={{ objectFit: 'cover' }}
-								/>
-							</div>
-							<div>
-								<div
-									style={{
-										fontFamily: 'var(--font-ibm-plex-mono)',
-										fontSize: 11,
-										letterSpacing: '0.15em',
-										color: 'rgba(244,241,235,0.6)',
-										marginBottom: 8,
-									}}
-								>
-									HINWEIS — HYDRATION
-								</div>
-								<p
-									style={{
-										fontSize: 15,
-										lineHeight: 1.65,
-										color: 'rgba(244,241,235,0.88)',
-										fontFamily: 'var(--font-archivo)',
-									}}
-								>
-									Der Bereich{' '}
-									<strong>
-										Hydration (Getränke & Trinken)
-									</strong>{' '}
-									ist bereits fest vergeben. Wir sind stolz,
-									von{' '}
-									<strong style={{ color: 'var(--chalk)' }}>
-										PEAQ Hydration
-									</strong>{' '}
-									unterstützt zu werden. Anfragen in diesem
-									Segment können wir leider nicht
-									berücksichtigen.
-								</p>
-							</div>
-						</div>
-					</Reveal>
-				</div>
-			</section>
-
-			{/* ── Partnermodelle ── */}
-			<section
-				style={{
-					background: 'var(--chalk)',
-					padding: 'clamp(70px,10vw,140px) clamp(20px,4vw,56px)',
-				}}
-			>
-				<div style={{ maxWidth: 1100, margin: '0 auto' }}>
-					<Reveal>
-						<div className="kicker">Was wir anbieten</div>
-					</Reveal>
-					<Reveal delay={80}>
-						<h2
-							style={{
-								fontFamily: 'var(--font-anton)',
-								fontSize: 'clamp(44px,7vw,104px)',
-								lineHeight: 0.95,
-								textTransform: 'uppercase',
-								marginBottom: 48,
-							}}
-						>
-							Partner-
-							<br />
-							modelle.
-						</h2>
-					</Reveal>
-
-					<div
-						style={{
-							display: 'grid',
-							gridTemplateColumns:
-								'repeat(auto-fit, minmax(300px, 1fr))',
-							gap: 20,
-						}}
-					>
-						{[
-							{
-								icon: '📢',
-								title: 'Visibility',
-								description:
-									'Logo & Erwähnung auf der Website, in der WhatsApp-Community und auf unseren Instagram-Posts. Reichweite ohne Aufwand.',
-								available: true,
-							},
-							{
-								icon: '🎁',
-								title: 'Product Sampling',
-								description:
-									'Deine Produkte direkt an unsere Community — am Tuesday Run, am Longrun oder bei Events. Echter Test, echtes Feedback.',
-								available: true,
-							},
-							{
-								icon: '🤝',
-								title: 'Co-Branding',
-								description:
-									'Gemeinsame Events, gebrandete Run-Kits oder spezielle Challenges unter deinem Label. Tief verankert in der Community.',
-								available: true,
-							},
-							{
-								icon: '',
-								title: '',
-								description: '',
-								available: false,
-							},
-						].map((offer, i) => (
-							<Reveal key={offer.title} delay={i * 60}>
-								<OfferingCard {...offer} />
-							</Reveal>
-						))}
-					</div>
 				</div>
 			</section>
 
@@ -1115,14 +639,11 @@ export default function PartnerPage() {
 							<div style={{ color: 'rgba(244,241,235,0.7)' }}>
 								📍 Solothurn, Schweiz
 								<br />
-								📅 52 Tuesday Runs/Jahr + Spezial-Events
+								📅 52 Social Runs/Jahr + Spezial-Events
 								<br />
 								👥 900+ Insta · 250+ WhatsApp
 								<br />
 								🎯 Zielgruppe: Sportbegeisterte, 18–45 Jahre
-								<br />
-								✅ Offen für: Food, Nutrition, Recovery
-								<br />❌ Vergeben: Hydration (PEAQ Hydration)
 							</div>
 						</div>
 					</Reveal>

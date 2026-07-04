@@ -15,25 +15,24 @@ export default function Nav() {
       <Link href="/" className="flex items-center gap-3 no-underline text-[var(--black)]">
         <span
           style={{
-            width: 44,
-            height: 44,
-            borderRadius: '50%',
-            background: 'var(--coral)',
+            width: 60,
+            height: 60,
             display: 'block',
             position: 'relative',
             overflow: 'hidden',
-            transform: 'rotate(-6deg)',
+            transform: 'rotate(-4deg)',
             flexShrink: 0,
           }}
         >
-          <Image src={LogoIcon} alt="11RUNCLUB Logo" fill sizes="44px" style={{ objectFit: 'cover' }} />
+          <Image src={LogoIcon} alt="11RUNCLUB Logo" fill sizes="60px" style={{ objectFit: 'cover' }} />
         </span>
         <span
           style={{
-            fontFamily: 'var(--font-ibm-plex-mono)',
-            fontWeight: 500,
-            letterSpacing: '0.22em',
-            fontSize: 14,
+            fontFamily: 'var(--font-anton)',
+            fontWeight: 400,
+            letterSpacing: '0.02em',
+            fontSize: 22,
+            textTransform: 'uppercase',
           }}
         >
           11RUNCLUB
@@ -41,28 +40,24 @@ export default function Nav() {
       </Link>
 
       <div className="flex gap-[clamp(14px,2.5vw,34px)] items-center">
-        {isHome ? (
-          <>
-            <a
-              href="#next"
-              className="no-underline text-[var(--black)] text-sm font-semibold tracking-[0.04em] hover:text-[var(--red)] transition-colors hidden md:block"
-            >
-              Next Run
-            </a>
-            <a
-              href="#formats"
-              className="no-underline text-[var(--black)] text-sm font-semibold tracking-[0.04em] hover:text-[var(--red)] transition-colors hidden md:block"
-            >
-              Runs
-            </a>
-            <a
-              href="#events"
-              className="no-underline text-[var(--black)] text-sm font-semibold tracking-[0.04em] hover:text-[var(--red)] transition-colors hidden md:block"
-            >
-              Events
-            </a>
-          </>
-        ) : null}
+        <a
+          href={isHome ? '#next' : '/#next'}
+          className="no-underline text-[var(--black)] text-sm font-semibold tracking-[0.04em] hover:text-[var(--red)] transition-colors hidden md:block"
+        >
+          Next Run
+        </a>
+        <a
+          href={isHome ? '#formats' : '/#formats'}
+          className="no-underline text-[var(--black)] text-sm font-semibold tracking-[0.04em] hover:text-[var(--red)] transition-colors hidden md:block"
+        >
+          Runs
+        </a>
+        <a
+          href={isHome ? '#events' : '/#events'}
+          className="no-underline text-[var(--black)] text-sm font-semibold tracking-[0.04em] hover:text-[var(--red)] transition-colors hidden md:block"
+        >
+          Events
+        </a>
         <Link
           href="/team"
           className="no-underline text-sm font-semibold tracking-[0.04em] hover:text-[var(--red)] transition-colors hidden md:block"

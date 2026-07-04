@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import ShirtImg from '../reference/shirt.jpg'
+import FrontRunImg from '../reference/frontrun.jpg'
+import RunLineImg from '../reference/runline.jpg'
 
 /* ─── Countdown ─────────────────────────────────────────────────────────────── */
 function nextTuesday() {
@@ -45,24 +47,24 @@ function Countdown() {
 			<div
 				style={{
 					fontFamily: 'var(--font-ibm-plex-mono)',
-					fontSize: 11,
+					fontSize: 13,
 					letterSpacing: '0.2em',
 					color: 'var(--red)',
-					marginBottom: 8,
+					marginBottom: 12,
 				}}
 			>
-				COUNTDOWN — TUESDAY RUN
+				COUNTDOWN — SOCIAL RUN
 			</div>
 			<div
 				style={{
 					fontFamily: 'var(--font-ibm-plex-mono)',
-					border: '1.5px solid var(--black)',
-					borderRadius: 14,
-					padding: '16px 22px',
+					border: '2px solid var(--black)',
+					borderRadius: 18,
+					padding: 'clamp(18px,2.4vw,30px) clamp(20px,3vw,36px)',
 					display: 'flex',
-					gap: 26,
+					gap: 'clamp(20px,3vw,40px)',
 					background: 'var(--chalk)',
-					boxShadow: '6px 6px 0 var(--red)',
+					boxShadow: '9px 9px 0 var(--red)',
 				}}
 			>
 				{[
@@ -74,8 +76,9 @@ function Countdown() {
 					<div key={lbl} style={{ textAlign: 'center' }}>
 						<div
 							style={{
-								fontSize: 28,
-								fontWeight: 500,
+								fontFamily: 'var(--font-anton)',
+								fontSize: 'clamp(40px,6vw,80px)',
+								lineHeight: 1,
 								fontVariantNumeric: 'tabular-nums',
 							}}
 						>
@@ -83,10 +86,10 @@ function Countdown() {
 						</div>
 						<div
 							style={{
-								fontSize: 10,
+								fontSize: 11,
 								letterSpacing: '0.2em',
 								color: 'var(--ash)',
-								marginTop: 2,
+								marginTop: 6,
 							}}
 						>
 							{lbl}
@@ -493,7 +496,7 @@ function StravaSection() {
 					>
 						Tritt unserem offiziellen Strava-Club bei und sammle mit
 						der ganzen Community Kilometer. Jede Runde zählt — egal
-						ob Tuesday Run, Longrun oder Solo-Training
+						ob Social Run, Longrun oder Solo-Training
 						zwischendurch.
 					</p>
 				</Reveal>
@@ -585,7 +588,7 @@ function StravaSection() {
 				>
 					{[
 						{ val: '150+', lbl: 'MEMBERS' },
-						{ val: 'DI', lbl: 'TUESDAY RUN' },
+						{ val: 'DI', lbl: 'SOCIAL RUN' },
 					].map(({ val, lbl }, i) => (
 						<Reveal key={lbl} delay={i * 80}>
 							<div
@@ -687,7 +690,7 @@ function HeroEleven() {
 				fontFamily: 'var(--font-anton)',
 				fontSize: 'clamp(300px,42vw,640px)',
 				color: 'transparent',
-				WebkitTextStroke: '1.5px rgba(13,12,11,0.10)',
+				WebkitTextStroke: '1.5px rgba(244,241,235,0.16)',
 				lineHeight: 1,
 				userSelect: 'none',
 				pointerEvents: 'none',
@@ -698,11 +701,11 @@ function HeroEleven() {
 	)
 }
 
-/* ─── Tuesday Run Card Stack ──────────────────────────────────────────────────── */
-const TUESDAY_CARDS = [
+/* ─── Social Run Card Stack ──────────────────────────────────────────────────── */
+const SOCIAL_CARDS = [
 	{
 		tag: 'DIENSTAGS · SOCIAL',
-		title: 'Tuesday Run',
+		title: 'Social Run',
 		spec: '18:30 · 6 & 10 KM',
 		bg: 'var(--red)',
 		color: 'var(--chalk)',
@@ -735,9 +738,9 @@ function RunStack() {
 	const [index, setIndex] = useState(0)
 	const startX = useRef<number | null>(null)
 
-	const next = () => setIndex((i) => (i + 1) % TUESDAY_CARDS.length)
+	const next = () => setIndex((i) => (i + 1) % SOCIAL_CARDS.length)
 	const prev = () =>
-		setIndex((i) => (i - 1 + TUESDAY_CARDS.length) % TUESDAY_CARDS.length)
+		setIndex((i) => (i - 1 + SOCIAL_CARDS.length) % SOCIAL_CARDS.length)
 
 	const onPointerDown = (e: React.PointerEvent) => {
 		startX.current = e.clientX
@@ -762,10 +765,10 @@ function RunStack() {
 				onPointerDown={onPointerDown}
 				onPointerUp={onPointerUp}
 			>
-				{TUESDAY_CARDS.map((c, i) => {
+				{SOCIAL_CARDS.map((c, i) => {
 					const rel =
-						(i - index + TUESDAY_CARDS.length) %
-						TUESDAY_CARDS.length
+						(i - index + SOCIAL_CARDS.length) %
+						SOCIAL_CARDS.length
 					if (rel > 2) return null
 					return (
 						<div
@@ -785,7 +788,7 @@ function RunStack() {
 								overflow: 'hidden',
 								cursor: rel === 0 ? 'grab' : 'default',
 								transform: `translateY(${rel * 14}px) scale(${1 - rel * 0.045})`,
-								zIndex: TUESDAY_CARDS.length - rel,
+								zIndex: SOCIAL_CARDS.length - rel,
 								opacity: rel === 0 ? 1 : 0.92 - rel * 0.16,
 								transition:
 									'transform 0.4s cubic-bezier(.3,0,.2,1), opacity 0.4s',
@@ -876,7 +879,7 @@ function RunStack() {
 					</button>
 				</div>
 				<div style={{ display: 'flex', gap: 6 }}>
-					{TUESDAY_CARDS.map((c, i) => (
+					{SOCIAL_CARDS.map((c, i) => (
 						<button
 							key={c.title}
 							aria-label={c.title}
@@ -911,6 +914,212 @@ function RunStack() {
 	)
 }
 
+/* ─── Impressionen Gallery ───────────────────────────────────────────────────── */
+function ImpressionenSection() {
+	return (
+		<section
+			style={{
+				background: 'var(--chalk)',
+				padding: 'clamp(70px,10vw,140px) clamp(20px,4vw,56px)',
+			}}
+		>
+			<Reveal>
+				<div className="kicker">Impressionen</div>
+			</Reveal>
+			<Reveal delay={60}>
+				<h2
+					style={{
+						fontFamily: 'var(--font-anton)',
+						fontSize: 'clamp(44px,7vw,104px)',
+						lineHeight: 0.95,
+						textTransform: 'uppercase',
+						marginBottom: 24,
+					}}
+				>
+					Das ist unsere
+					<br />
+					Energie.
+				</h2>
+			</Reveal>
+
+			<div
+				style={{
+					display: 'grid',
+					gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+					gap: 24,
+					marginTop: 56,
+				}}
+			>
+				<Reveal>
+					<div
+						style={{
+							position: 'relative',
+							aspectRatio: '3 / 4',
+							borderRadius: 24,
+							overflow: 'hidden',
+						}}
+					>
+						<Image
+							src={FrontRunImg}
+							alt="11RUNCLUB Läufer:innen auf einem Feldweg bei Solothurn"
+							fill
+							sizes="(max-width: 900px) 100vw, 50vw"
+							style={{ objectFit: 'cover' }}
+						/>
+					</div>
+				</Reveal>
+				<Reveal delay={100}>
+					<div
+						style={{
+							position: 'relative',
+							aspectRatio: '3 / 4',
+							borderRadius: 24,
+							overflow: 'hidden',
+						}}
+					>
+						<Image
+							src={RunLineImg}
+							alt="11RUNCLUB Community beim gemeinsamen Aufwärmen an der Bahn"
+							fill
+							sizes="(max-width: 900px) 100vw, 50vw"
+							style={{ objectFit: 'cover' }}
+						/>
+					</div>
+				</Reveal>
+			</div>
+		</section>
+	)
+}
+
+/* ─── FAQ ─────────────────────────────────────────────────────────────────────── */
+const FAQ_ITEMS = [
+	{
+		q: 'Kostet die Teilnahme etwas?',
+		a: 'Nein, der 11RUNCLUB ist komplett kostenlos und offen für alle.',
+	},
+	{
+		q: 'Wie schnell wird gelaufen?',
+		a: 'Wir laufen im Wohlfühltempo, sodass sich alle unterhalten können. Niemand wird zurückgelassen!',
+	},
+	{
+		q: 'Muss ich mich anmelden?',
+		a: 'Nein, für unsere regulären Social Runs kannst du einfach spontan vorbeikommen.',
+	},
+]
+
+function FAQSection() {
+	const [open, setOpen] = useState<number | null>(0)
+
+	return (
+		<section
+			style={{
+				background: 'var(--black)',
+				color: 'var(--chalk)',
+				padding: 'clamp(70px,10vw,140px) clamp(20px,4vw,56px)',
+			}}
+		>
+			<Reveal>
+				<div className="kicker kicker--chalk">FAQ</div>
+			</Reveal>
+			<Reveal delay={60}>
+				<h2
+					style={{
+						fontFamily: 'var(--font-anton)',
+						fontSize: 'clamp(44px,7vw,104px)',
+						lineHeight: 0.95,
+						textTransform: 'uppercase',
+						marginBottom: 40,
+					}}
+				>
+					Fragen &amp;
+					<br />
+					Antworten.
+				</h2>
+			</Reveal>
+
+			<div
+				style={{
+					maxWidth: 780,
+					borderTop: '1.5px solid rgba(244,241,235,0.2)',
+				}}
+			>
+				{FAQ_ITEMS.map((item, i) => {
+					const isOpen = open === i
+					return (
+						<Reveal key={item.q} delay={i * 60}>
+							<div
+								style={{
+									borderBottom:
+										'1.5px solid rgba(244,241,235,0.2)',
+								}}
+							>
+								<button
+									onClick={() =>
+										setOpen(isOpen ? null : i)
+									}
+									style={{
+										width: '100%',
+										display: 'flex',
+										justifyContent: 'space-between',
+										alignItems: 'center',
+										gap: 20,
+										padding: '26px 4px',
+										background: 'transparent',
+										border: 'none',
+										color: 'inherit',
+										textAlign: 'left',
+										cursor: 'pointer',
+										fontFamily: 'var(--font-anton)',
+										fontSize: 'clamp(20px,2.6vw,32px)',
+										textTransform: 'uppercase',
+										lineHeight: 1.1,
+									}}
+								>
+									{item.q}
+									<span
+										aria-hidden="true"
+										style={{
+											fontSize: 28,
+											flexShrink: 0,
+											color: 'var(--red)',
+											transition: 'transform 0.3s',
+											transform: isOpen
+												? 'rotate(45deg)'
+												: 'none',
+										}}
+									>
+										+
+									</span>
+								</button>
+								<div
+									style={{
+										maxHeight: isOpen ? 240 : 0,
+										overflow: 'hidden',
+										transition: 'max-height 0.35s ease',
+									}}
+								>
+									<p
+										style={{
+											padding: '0 4px 28px',
+											fontFamily: 'var(--font-archivo)',
+											fontSize: 16,
+											lineHeight: 1.65,
+											color: 'rgba(244,241,235,0.75)',
+											maxWidth: 640,
+										}}
+									>
+										{item.a}
+									</p>
+								</div>
+							</div>
+						</Reveal>
+					)
+				})}
+			</div>
+		</section>
+	)
+}
+
 /* ─── Page ───────────────────────────────────────────────────────────────────── */
 export default function HomePage() {
 	return (
@@ -924,8 +1133,23 @@ export default function HomePage() {
 					flexDirection: 'column',
 					justifyContent: 'flex-end',
 					position: 'relative',
+					overflow: 'hidden',
+					color: 'var(--chalk)',
 				}}
 			>
+				<video
+					autoPlay
+					loop
+					muted
+					playsInline
+					src="/RunKanti.MOV"
+					className="object-cover w-full h-full absolute inset-0 -z-20"
+				/>
+				<div
+					aria-hidden="true"
+					className="absolute inset-0 -z-10"
+					style={{ background: 'rgba(13,12,11,0.55)' }}
+				/>
 				<HeroEleven />
 				<div
 					style={{
@@ -970,7 +1194,7 @@ export default function HomePage() {
 					<span
 						style={{
 							color: 'transparent',
-							WebkitTextStroke: '2.5px var(--black)',
+							WebkitTextStroke: '2.5px var(--chalk)',
 						}}
 					>
 						Runclub
@@ -999,7 +1223,7 @@ export default function HomePage() {
 						>
 							WhatsApp beitreten
 						</a>
-						<a href="#next" className="btn btn--ghost">
+						<a href="#next" className="btn btn--chalk">
 							Nächster Run ↓
 						</a>
 					</div>
@@ -1172,7 +1396,7 @@ export default function HomePage() {
 							marginTop: 24,
 						}}
 					>
-						Dienstags wechseln sich lockerer Tuesday Run und Workout
+						Dienstags wechseln sich lockerer Social Run und Workout
 						ab — Hill Reps, Progression Run oder Out &amp; Back.
 						Einmal im Monat kommt an einem Samstag der Longrun dazu.
 					</p>
@@ -1415,6 +1639,12 @@ export default function HomePage() {
 
 			{/* ── Slogan Marquee ── */}
 			<SloganMarquee />
+
+			{/* ── Impressionen ── */}
+			<ImpressionenSection />
+
+			{/* ── FAQ ── */}
+			<FAQSection />
 
 			<style>{`
         @keyframes pulse {

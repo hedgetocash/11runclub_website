@@ -407,125 +407,112 @@ export default function TeamPage() {
 					}}
 				/>
 
-				<div style={{ position: 'relative' }}>
-					<Reveal>
-						<div className="kicker kicker--chalk">
-							Die Menschen dahinter
-						</div>
-					</Reveal>
-					<Reveal delay={80}>
-						<h1
-							style={{
-								fontFamily: 'var(--font-anton)',
-								fontSize: 'clamp(72px,13vw,200px)',
-								lineHeight: 0.88,
-								textTransform: 'uppercase',
-								letterSpacing: '-0.01em',
-								maxWidth: '10ch',
-							}}
-						>
-							Unser
-							<br />
-							<span
+				<div
+					style={{
+						position: 'relative',
+						display: 'grid',
+						gridTemplateColumns:
+							'repeat(auto-fit, minmax(320px, 1fr))',
+						gap: 'clamp(40px,6vw,80px)',
+						alignItems: 'center',
+					}}
+				>
+					<div>
+						<Reveal>
+							<div className="kicker kicker--chalk">
+								Die Menschen dahinter
+							</div>
+						</Reveal>
+						<Reveal delay={80}>
+							<h1
 								style={{
-									color: 'transparent',
-									WebkitTextStroke: '2px var(--chalk)',
+									fontFamily: 'var(--font-anton)',
+									fontSize: 'clamp(72px,10vw,160px)',
+									lineHeight: 0.88,
+									textTransform: 'uppercase',
+									letterSpacing: '-0.01em',
+									maxWidth: '10ch',
 								}}
 							>
-								Team.
-							</span>
-						</h1>
-					</Reveal>
-					<Reveal delay={160}>
-						<p
-							style={{
-								fontSize: 18,
-								lineHeight: 1.7,
-								color: 'rgba(244,241,235,0.85)',
-								maxWidth: 540,
-								marginTop: 36,
-								fontFamily: 'var(--font-archivo)',
-							}}
-						>
-							Vier Personen aus Solothurn, die gemeinsam den
-							11RUNCLUB ins Leben gerufen haben — mit einer
-							simplen Idee: Zusammen laufen macht mehr Spass.
-						</p>
-					</Reveal>
+								Unser
+								<br />
+								<span
+									style={{
+										color: 'transparent',
+										WebkitTextStroke: '2px var(--chalk)',
+									}}
+								>
+									Team.
+								</span>
+							</h1>
+						</Reveal>
+						<Reveal delay={160}>
+							<p
+								style={{
+									fontSize: 18,
+									lineHeight: 1.7,
+									color: 'rgba(244,241,235,0.85)',
+									maxWidth: 540,
+									marginTop: 36,
+									fontFamily: 'var(--font-archivo)',
+								}}
+							>
+								Vier Personen aus Solothurn, die gemeinsam den
+								11RUNCLUB ins Leben gerufen haben — mit einer
+								simplen Idee: Zusammen laufen macht mehr Spass.
+							</p>
+						</Reveal>
 
-					{/* Founder stats */}
-					<Reveal delay={240}>
+						{/* Founder statement */}
+						<Reveal delay={240}>
+							<div
+								style={{
+									marginTop: 48,
+									paddingTop: 28,
+									borderTop:
+										'1.5px solid rgba(244,241,235,0.2)',
+								}}
+							>
+								<p
+									style={{
+										fontFamily: 'var(--font-anton)',
+										fontSize: 'clamp(26px,3.2vw,42px)',
+										lineHeight: 1.1,
+										textTransform: 'uppercase',
+										maxWidth: 480,
+									}}
+								>
+									4 Gründer und 1 gemeinsames Ziel:{' '}
+									<span style={{ color: 'var(--red)' }}>
+										Solothurn zum Laufen zu bringen.
+									</span>
+								</p>
+							</div>
+						</Reveal>
+					</div>
+
+					<Reveal delay={120}>
 						<div
 							style={{
-								display: 'flex',
-								gap: 48,
-								marginTop: 56,
-								flexWrap: 'wrap',
+								position: 'relative',
+								maxWidth: 480,
+								margin: '0 auto',
+								aspectRatio: '3 / 4',
+								borderRadius: 24,
+								overflow: 'hidden',
 							}}
 						>
-							{[
-								{ val: '4', lbl: 'GRÜNDER:INNEN' },
-								{ val: '0', lbl: 'PROFI-TRAINER' },
-								{ val: '1', lbl: 'GEMEINSAME IDEE' },
-							].map(({ val, lbl }) => (
-								<div key={lbl}>
-									<div
-										style={{
-											fontFamily: 'var(--font-anton)',
-											fontSize: 'clamp(36px,5vw,72px)',
-											lineHeight: 1,
-											color: 'var(--chalk)',
-										}}
-									>
-										{val}
-									</div>
-									<div
-										style={{
-											fontFamily:
-												'var(--font-ibm-plex-mono)',
-											fontSize: 11,
-											letterSpacing: '0.2em',
-											color: 'rgba(244,241,235,0.55)',
-											marginTop: 6,
-										}}
-									>
-										{lbl}
-									</div>
-								</div>
-							))}
+							<Image
+								src={TeamPhoto}
+								alt="Noa, Emma, Nils und Anna — die vier Gründer:innen des 11RUNCLUB"
+								fill
+								sizes="(max-width: 900px) 100vw, 480px"
+								style={{ objectFit: 'cover' }}
+								priority
+							/>
 						</div>
 					</Reveal>
 				</div>
-			</section>
-
-			{/* ── Gruppenfoto ── */}
-			<section
-				style={{
-					background: 'var(--chalk)',
-					padding: 'clamp(50px,7vw,90px) clamp(20px,4vw,56px)',
-				}}
-			>
-				<Reveal>
-					<div
-						style={{
-							position: 'relative',
-							maxWidth: 620,
-							margin: '0 auto',
-							aspectRatio: '3 / 4',
-							borderRadius: 24,
-							overflow: 'hidden',
-						}}
-					>
-						<Image
-							src={TeamPhoto}
-							alt="Noa, Emma, Nils und Anna — die vier Gründer:innen des 11RUNCLUB"
-							fill
-							sizes="(max-width: 620px) 100vw, 620px"
-							style={{ objectFit: 'cover' }}
-							priority
-						/>
-					</div>
-				</Reveal>
 			</section>
 
 			{/* ── Portrait Sections ── */}
@@ -562,7 +549,7 @@ export default function TeamPage() {
 					>
 						Lauf einfach
 						<br />
-						<span style={{ color: 'var(--red)' }}>vorbei.</span>
+						<span style={{ color: 'var(--red)' }}>mit.</span>
 					</h2>
 				</Reveal>
 				<Reveal delay={160}>
