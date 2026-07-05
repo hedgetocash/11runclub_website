@@ -240,9 +240,6 @@ export default function PartnerPage() {
 							>
 								Kontakt via Instagram →
 							</a>
-							<a href="#kontakt" className="btn btn--chalk">
-								Direkt schreiben ↓
-							</a>
 						</div>
 					</Reveal>
 				</div>

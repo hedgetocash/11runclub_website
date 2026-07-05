@@ -55,7 +55,7 @@ function Countdown() {
 					marginBottom: 12,
 				}}
 			>
-				COUNTDOWN — SOCIAL RUN
+				<strong>COUNTDOWN — NEXT RUN</strong>
 			</div>
 			<div
 				style={{
@@ -1236,7 +1236,7 @@ export default function HomePage() {
 							flexShrink: 0,
 						}}
 					/>
-					<span>SOLOTHURN</span>
+					<span></span>
 					<span>SEIT 2025</span>
 				</div>
 
@@ -1543,7 +1543,8 @@ export default function HomePage() {
 												opacity: 0.85,
 											}}
 										>
-											SA · 09:30 · 10 ODER 15 KM
+											SA · 09:30 · 10KM @6:00min/km ODER
+											15KM @5:30min/km
 										</div>
 									</div>
 								</div>
@@ -1662,7 +1663,7 @@ export default function HomePage() {
 					{[
 						{
 							nm: 'WhatsApp',
-							ds: 'COMMUNITY BEITRETEN — GRATIS',
+							ds: 'COMMUNITY BEITRETEN',
 							href: 'https://tr.ee/wKzGb4-Rug',
 						},
 						{
