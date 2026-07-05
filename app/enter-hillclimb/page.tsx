@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { notFound } from 'next/navigation'
 import EnterBuildingImg from '../../reference/enter-building-cc-by-sa.jpg'
 
 function Reveal({
@@ -123,6 +124,10 @@ function Countdown() {
 }
 
 export default function EnterHillclimbPage() {
+	// TEMPORÄR AUSGEBLENDET — The Maze ist noch nicht final bestätigt.
+	// Zum Wiedereinblenden einfach die Zeile unten löschen/auskommentieren:
+	notFound()
+
 	return (
 		<>
 			{/* ── Hero ── */}

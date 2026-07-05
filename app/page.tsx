@@ -1064,10 +1064,12 @@ const FAQ_ITEMS = [
 		q: 'Wie bleibe ich auf dem Laufenden?',
 		a: 'Am schnellsten erfährst du alles über Instagram und unseren WhatsApp-Community-Channel. Folge uns auf @11.runclub für die wöchentlichen Updates und komm in den WhatsApp-Chat, um keine Infos zu verpassen. Die Links dazu findest du direkt hier auf der Seite!',
 	},
-	{
-		q: 'Was ist The Maze?',
-		a: 'Unser eigenes Rennen mit Saucony: ein 4er-Staffel-Hillclimb in der ENTER Technikwelt Derendingen, am 25.09.2026. Alle Details dazu findest du auf der Event-Seite.',
-	},
+	// TEMPORÄR AUSGEBLENDET — The Maze ist noch nicht final bestätigt.
+	// Zum Wiedereinblenden einfach den Block unten einkommentieren:
+	// {
+	// 	q: 'Was ist The Maze?',
+	// 	a: 'Unser eigenes Rennen mit Saucony: ein 4er-Staffel-Hillclimb in der ENTER Technikwelt Derendingen, am 25.09.2026. Alle Details dazu findest du auf der Event-Seite.',
+	// },
 ]
 
 function FAQSection() {
@@ -1525,8 +1527,10 @@ export default function HomePage() {
 				`}</style>
 			</section>
 
-			{/* ── Pinned Event ── */}
-			<PinnedEvent />
+			{/* ── Pinned Event ──
+			    TEMPORÄR AUSGEBLENDET — The Maze ist noch nicht final bestätigt.
+			    Zum Wiedereinblenden einfach die Zeile unten einkommentieren: */}
+			{/* <PinnedEvent /> */}
 
 			{/* ── Join ── */}
 			<section
