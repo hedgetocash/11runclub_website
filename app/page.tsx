@@ -726,7 +726,7 @@ function HeroEleven() {
 }
 
 /* ─── Social Run Card Stack ──────────────────────────────────────────────────── */
-const SOCIAL_CARDS = [
+const RUN_CARDS = [
 	{
 		tag: 'DIENSTAGS · SOCIAL',
 		title: 'Social Run',
@@ -756,24 +756,35 @@ const SOCIAL_CARDS = [
 		bg: 'var(--coral)',
 		color: 'var(--black)',
 	},
+	{
+		tag: '1× IM MONAT',
+		title: 'Longrun',
+		spec: 'SA · 09:30 · 10 ODER 15 KM',
+		bg: 'var(--black)',
+		color: 'var(--chalk)',
+	},
 ]
 
 function RunStack() {
 	const [index, setIndex] = useState(0)
 	const startX = useRef<number | null>(null)
 
-	const next = () => setIndex((i) => (i + 1) % SOCIAL_CARDS.length)
+	const next = () => setIndex((i) => (i + 1) % RUN_CARDS.length)
 	const prev = () =>
-		setIndex((i) => (i - 1 + SOCIAL_CARDS.length) % SOCIAL_CARDS.length)
+		setIndex((i) => (i - 1 + RUN_CARDS.length) % RUN_CARDS.length)
 
 	const onPointerDown = (e: React.PointerEvent) => {
 		startX.current = e.clientX
+		e.currentTarget.setPointerCapture?.(e.pointerId)
 	}
 	const onPointerUp = (e: React.PointerEvent) => {
 		if (startX.current === null) return
 		const dx = e.clientX - startX.current
 		if (dx < -36) next()
 		else if (dx > 36) prev()
+		startX.current = null
+	}
+	const onPointerCancel = () => {
 		startX.current = null
 	}
 
@@ -784,14 +795,15 @@ function RunStack() {
 					position: 'relative',
 					aspectRatio: '3 / 4.1',
 					userSelect: 'none',
-					touchAction: 'pan-y',
+					touchAction: 'none',
 				}}
 				onPointerDown={onPointerDown}
 				onPointerUp={onPointerUp}
+				onPointerCancel={onPointerCancel}
 			>
-				{SOCIAL_CARDS.map((c, i) => {
+				{RUN_CARDS.map((c, i) => {
 					const rel =
-						(i - index + SOCIAL_CARDS.length) % SOCIAL_CARDS.length
+						(i - index + RUN_CARDS.length) % RUN_CARDS.length
 					if (rel > 2) return null
 					return (
 						<div
@@ -811,7 +823,7 @@ function RunStack() {
 								overflow: 'hidden',
 								cursor: rel === 0 ? 'grab' : 'default',
 								transform: `translateY(${rel * 14}px) scale(${1 - rel * 0.045})`,
-								zIndex: SOCIAL_CARDS.length - rel,
+								zIndex: RUN_CARDS.length - rel,
 								opacity: rel === 0 ? 1 : 0.92 - rel * 0.16,
 								transition:
 									'transform 0.4s cubic-bezier(.3,0,.2,1), opacity 0.4s',
@@ -902,7 +914,7 @@ function RunStack() {
 					</button>
 				</div>
 				<div style={{ display: 'flex', gap: 6 }}>
-					{SOCIAL_CARDS.map((c, i) => (
+					{RUN_CARDS.map((c, i) => (
 						<button
 							key={c.title}
 							aria-label={c.title}
@@ -1476,78 +1488,9 @@ export default function HomePage() {
 							</p>
 						</Reveal>
 
-						<div
-							style={{
-								display: 'grid',
-								gridTemplateColumns:
-									'repeat(auto-fit, minmax(260px, 1fr))',
-								gap: 16,
-								marginTop: 56,
-								maxWidth: 620,
-							}}
-						>
+						<div style={{ marginTop: 56, maxWidth: 380 }}>
 							<Reveal>
 								<RunStack />
-							</Reveal>
-
-							<Reveal delay={60}>
-								<div
-									className="run-card"
-									style={{
-										background: 'var(--black)',
-										color: 'var(--chalk)',
-										aspectRatio: '3 / 4.1',
-										borderRadius: 16,
-										padding: 22,
-										display: 'flex',
-										flexDirection: 'column',
-										justifyContent: 'space-between',
-										position: 'relative',
-										overflow: 'hidden',
-										cursor: 'default',
-									}}
-								>
-									<span
-										style={{
-											fontFamily:
-												'var(--font-ibm-plex-mono)',
-											fontSize: 11,
-											letterSpacing: '0.2em',
-											opacity: 0.85,
-										}}
-									>
-										1× IM MONAT
-									</span>
-									<div className="ring" />
-									<div>
-										<h3
-											style={{
-												fontFamily: 'var(--font-anton)',
-												fontWeight: 400,
-												fontSize:
-													'clamp(34px,3.4vw,52px)',
-												lineHeight: 0.92,
-												textTransform: 'uppercase',
-												marginTop: 'auto',
-											}}
-										>
-											Longrun
-										</h3>
-										<div
-											style={{
-												fontFamily:
-													'var(--font-ibm-plex-mono)',
-												fontSize: 12,
-												letterSpacing: '0.12em',
-												marginTop: 14,
-												opacity: 0.85,
-											}}
-										>
-											SA · 09:30 · 10KM @6:00min/km ODER
-											15KM @5:30min/km
-										</div>
-									</div>
-								</div>
 							</Reveal>
 						</div>
 					</div>
