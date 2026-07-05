@@ -1028,6 +1028,34 @@ const FAQ_ITEMS = [
 		q: 'Muss ich mich anmelden?',
 		a: 'Nein, du kannst einfach spontan vorbeikommen.',
 	},
+	{
+		q: 'Kann ich alleine kommen?',
+		a: 'Ja, absolut! Der 11RUNCLUB ist genau dafür da, neue Leute kennenzulernen. Spätestens nach dem ersten Kilometer läufst du nicht mehr allein!',
+	},
+	{
+		q: 'Ich bin komplett neu im Laufen — passt das für mich?',
+		a: 'Unser Standard-Tempo bei den Social Runs liegt bei 6:00 min/km in der 6km-Gruppe. Wenn du bereits 5 bis 6 Kilometer am Stück ohne Pause joggen kannst (egal in welchem Tempo), bist du hier goldrichtig!',
+	},
+	{
+		q: 'Ist jeder Dienstag ein lockerer Social Run?',
+		a: 'Nein, wir wechseln ab! Unsere Dienstage rotieren wöchentlich, damit es nie langweilig wird: Social Run — eine Runde in Ausdauertempo, bei der das Community-Dasein im Vordergrund steht. Workout — Fokus auf Performance! Hier stehen Intervalle, Hill Reps (Bergläufe) oder Tempotraining auf dem Programm. Das Geniale: Da wir in Schleifen oder auf Zeit laufen, kann hier jeder auf seinem eigenen Level absolut alles geben.',
+	},
+	{
+		q: 'Wie oft findet der Longrun statt?',
+		a: 'Unsere längeren Community-Läufe am Wochenende finden einmal pro Monat (jeweils samstags) statt. Die perfekte Gelegenheit, um in der Gruppe ein paar mehr Kilometer zu sammeln und die Ausdauer auszubauen. Die genauen Termine und Distanzen kündigen wir immer rechtzeitig an.',
+	},
+	{
+		q: 'Trackt ihr eure Läufe irgendwo?',
+		a: 'Logisch, du findest uns auf Strava! Tritt einfach unserem offiziellen 11RUNCLUB Strava Club bei. Dort tracken wir nicht nur unsere Runs, sondern du siehst auch immer das Programm für die kommenden Wochen.',
+	},
+	{
+		q: 'Wie bleibe ich auf dem Laufenden?',
+		a: 'Am schnellsten erfährst du alles über Instagram und unseren WhatsApp-Community-Channel. Folge uns auf @11.runclub für die wöchentlichen Updates und komm in den WhatsApp-Chat, um keine Infos zu verpassen. Die Links dazu findest du direkt hier auf der Seite!',
+	},
+	{
+		q: 'Was ist The Maze?',
+		a: 'Unser eigenes Rennen mit Saucony: ein 4er-Staffel-Hillclimb in der ENTER Technikwelt Derendingen, am 25.09.2026. Alle Details dazu findest du auf der Event-Seite.',
+	},
 ]
 
 function FAQSection() {
@@ -1115,7 +1143,7 @@ function FAQSection() {
 								</button>
 								<div
 									style={{
-										maxHeight: isOpen ? 240 : 0,
+										maxHeight: isOpen ? 360 : 0,
 										overflow: 'hidden',
 										transition: 'max-height 0.35s ease',
 									}}
