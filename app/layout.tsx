@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Anton, Archivo, IBM_Plex_Mono } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 import Ticker from '@/components/Ticker'
 import Nav from '@/components/Nav'
@@ -63,6 +64,9 @@ export default function RootLayout({
 
         {/* Footer */}
         <Footer />
+
+        {/* Analytics */}
+        <Analytics />
       </body>
     </html>
   )
