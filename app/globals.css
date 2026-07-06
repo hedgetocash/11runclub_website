@@ -20,6 +20,12 @@
 
   html {
     scroll-behavior: smooth;
+    /* Zusammen mit body.overflow-x unten: verhindert horizontales Scrollen auf
+       Mobile zuverlässig. Achtung: brach frueher position:sticky im gepinnten
+       Event-Abschnitt (PinnedEvent) — der ist aktuell deaktiviert. Falls er
+       wieder aktiviert wird und ein weisser Block zwischen ihm und der
+       naechsten Sektion erscheint, zuerst diese Zeile pruefen. */
+    overflow-x: hidden;
   }
 
   body {
