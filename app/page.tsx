@@ -1203,9 +1203,6 @@ export default function HomePage() {
 					zIndex: 0,
 				}}
 			>
-				{/* Hero-Video folgt, sobald die komprimierte RunKanti.MOV bereitsteht:
-				    <video autoPlay loop muted playsInline src="/RunKanti.MOV"
-				      className="object-cover w-full h-full absolute inset-0 -z-20" /> */}
 				<div
 					style={{
 						position: 'absolute',
@@ -1214,17 +1211,25 @@ export default function HomePage() {
 						zIndex: -2,
 					}}
 				>
-					<Image
-						src={SolothurnCityImg}
-						alt=""
-						fill
-						sizes="100vw"
-						priority
+					<video
+						autoPlay
+						loop
+						muted
+						playsInline
+						preload="auto"
+						poster={SolothurnCityImg.src}
 						style={{
+							position: 'absolute',
+							inset: 0,
+							width: '100%',
+							height: '100%',
 							objectFit: 'cover',
+							objectPosition: 'center 75%',
 							filter: 'grayscale(1) contrast(0.92) brightness(1.15)',
 						}}
-					/>
+					>
+						<source src="/Run1.mp4" type="video/mp4" />
+					</video>
 				</div>
 				<HeroEleven />
 				<div
@@ -1287,7 +1292,7 @@ export default function HomePage() {
 						alignItems: 'flex-end',
 						justifyContent: 'space-between',
 						gap: 30,
-						marginTop: 42,
+						marginTop: 22,
 						flexWrap: 'wrap',
 					}}
 				>
