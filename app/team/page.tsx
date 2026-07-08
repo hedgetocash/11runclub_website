@@ -75,7 +75,7 @@ const TEAM: TeamMember[] = [
 		accent: 'var(--red)',
 		textColor: 'var(--chalk)',
 		bg: 'var(--black)',
-		bio: 'Hoi zäme :) Ich bin Noa. Sport ist meine Leidenschaft, früher Fussball und heute Ausdauersport. Sei es morgens auf einer Laufrunde oder an einem sonnigen Samstag auf einem Groupride mit meinen Freunden. Das Beste am Ausdauersport? Kaffee & Kuchen nach einer intensiven Trainingseinheit! Das Laufen hat mich im letzten Jahr gepackt, als ich intensiv für den Zürichmarathon trainiert habe. Gerade in den dunklen und kalten Winterstunden hätte ich mir einen regionalen Runclub gewünscht. Es freut mich daher umso mehr, den 11RUNCLUB mit gestalten zu dürfen. Ich freue mich auf eine laufmotivierte Community und spannende Trainings mit euch!',
+		bio: 'Sport ist meine Leidenschaft – früher Fussball, heute Ausdauersport, ob auf der Laufrunde am Morgen oder beim Groupride am Samstag. Richtig gepackt hat mich das Laufen letztes Jahr beim Training für den Zürichmarathon, und gerade in den dunklen Winterstunden hätte ich mir einen regionalen Runclub gewünscht. Umso mehr freue ich mich, den 11RUNCLUB mitzugestalten – auf eine laufmotivierte Community und spannende Trainings mit euch!',
 		tags: [],
 	},
 	{
@@ -85,7 +85,7 @@ const TEAM: TeamMember[] = [
 		accent: 'var(--coral)',
 		textColor: 'var(--black)',
 		bg: 'var(--chalk)',
-		bio: 'Hallo Zusammen, Ich bin Emma. Laufen ist eine meiner grossen Leidenschaften, ich laufe gerne und oft in der Region Solothurn. Dabei ist mir des Öfteren aufgefallen, dass es viele weitere Laufsportbegeisterte in der Region gibt. Allerdings laufen die meisten alleine, sowie auch ich. Deshalb dachte ich mir dies zu kombinieren, und eine Laufgemeinschaft zu gründen wo wir gemeinsam laufen und trainieren können. Meiner Meinung nach macht das Laufen noch viel mehr Spass in einer Gruppe und es fällt einem leichter sich zu motivieren und sich gegenseitig zu pushen. Des Weiteren bin ich Triathletin, liebe den Winter vor Allem den Schnee und alles was mit ihm zu tun hat. Ich erkundige gerne neue Gegenden, sei es bei einer Wanderung oder beim Laufen. Meistens laufe ich ohne Plan los, gehe in den Wald und nehme die kuriosesten Abzweigungen, so entdecke ich neue spannende Wege.',
+		bio: 'Laufen ist eine meiner grossen Leidenschaften – mir ist aufgefallen, dass viele in der Region Solothurn zwar gerne laufen, aber meistens allein. Genau das wollte ich ändern: eine Laufgemeinschaft, in der wir uns gegenseitig motivieren und pushen. Nebenbei bin ich Triathletin, liebe den Winter und erkunde am liebsten spontan neue Wege im Wald.',
 		tags: [],
 	},
 	{
@@ -95,7 +95,7 @@ const TEAM: TeamMember[] = [
 		accent: 'var(--cobalt)',
 		textColor: 'var(--chalk)',
 		bg: 'var(--black)',
-		bio: 'Hallo zusammen, Ich bin Nils. Ich bin schon fast mein ganzes Leben immer wieder mit dem Laufsport verbunden gewesen, sei es durch die Teilnahmen an Rennen als kleiner Junge, während der Offseason oder als Trainingseinheit. Laufen hat mich immer begleitet. Deshalb freut es mich, hier in Solothurn mithelfen zu dürfen, die Laufcommunity zu stärken. Ich habe über 10 Jahre lang Eishockey gespielt. Heute fahre ich gerne Rennrad und liebe alles, was mit Autos zu tun hat, vom Selbst Fahren bis zum Anschauen. Im Sommer ist ein Badi-Tag ein absolutes Muss und die beste Wahl, um auf einer Radtour etwas Erfrischung zu bekommen. Egal, wohin es in die Ferien geht: Eine Fotokamera ist immer dabei. Nur die Motive wechseln, von Löwen über Pinguine bis zu Wolkenkratzern. Ich freue mich auf all die kommenden Events und darauf, diese mit möglichst vielen von euch durchführen zu dürfen.',
+		bio: 'Der Laufsport hat mich schon mein ganzes Leben begleitet – von Rennen als kleiner Junge bis zum Training in der Offseason. Über 10 Jahre habe ich Eishockey gespielt, heute fahre ich gerne Rennrad und liebe alles, was mit Autos zu tun hat. Ich freue mich, hier in Solothurn die Laufcommunity mitzugestalten und mit euch die kommenden Events zu erleben.',
 		tags: [],
 	},
 	{
@@ -105,7 +105,7 @@ const TEAM: TeamMember[] = [
 		accent: 'var(--red)',
 		textColor: 'var(--black)',
 		bg: 'var(--chalk)',
-		bio: 'Hey, ich bin Anna. Total sportverrückt und am liebsten irgendwo in den Bergen unterwegs – am besten früh morgens wenn noch keiner wach ist. Und immer dabei: Mexx, mein Hund und treuer Alltagsbegleiter. Wenn ich nicht gerade draussen Energie tanke, steh ich wahrscheinlich in der Küche und backe Brot oder teste irgendein neues Rezept. Zum Laufen bin ich eigentlich eher zufällig gekommen. Nach einigen Jahren Leistungssport im Handball musste ich damit aus gesundheitlichen Gründen leider aufhören. Danach habe ich neben dem Bergsteigen auch sehr viel Spass im Crossfit gefunden. Doch eine ausgekugelte Schulter hat mich dann zu einer Crossfit-Pause gezwungen – also bin ich einfach mal mehr laufen gegangen... Inzwischen bin ich Ultra-Trail Finisherin und das Trailrunning meine absolute Herzenssportart. Als Solothurnerin findet man mich super oft auf dem Weissenstein, der Röti oder Hasenmatte. Ich freu mich sehr auf motivierende Trainings, coole Begegnungen und eine harmonische Community!',
+		bio: 'Total sportverrückt und am liebsten früh morgens in den Bergen unterwegs – mit meinem Hund Mexx immer an meiner Seite. Zum Laufen kam ich eher zufällig, nach Handball und Crossfit, doch inzwischen bin ich Ultra-Trail-Finisherin und Trailrunning ist meine absolute Herzenssportart. Als Solothurnerin trifft man mich oft auf dem Weissenstein, der Röti oder der Hasenmatte.',
 		tags: [],
 	},
 ]
