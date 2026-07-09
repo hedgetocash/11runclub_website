@@ -103,6 +103,119 @@ function Countdown() {
 		</div>
 	)
 }
+// Bekannte Longrun-Termine (jeweils 09:30 Uhr). Weitere Termine folgen —
+// hier ergänzen, sobald sie feststehen.
+const LONGRUN_DATES = ['2026-07-11T09:30:00', '2026-09-12T09:30:00']
+const LONGRUN_VISIBLE_WINDOW_MS = 7 * 24 * 60 * 60 * 1000
+
+function nextLongrun() {
+	const now = Date.now()
+	const upcoming = LONGRUN_DATES.map((d) => new Date(d))
+		.filter((d) => d.getTime() > now)
+		.sort((a, b) => a.getTime() - b.getTime())
+	return upcoming[0] ?? null
+}
+
+function LongrunBadge() {
+	const [time, setTime] = useState({ d: 0, h: '00', m: '00', s: '00' })
+	const [visible, setVisible] = useState(false)
+
+	useEffect(() => {
+		function tick() {
+			const target = nextLongrun()
+			if (!target) {
+				setVisible(false)
+				return
+			}
+			const ms = target.getTime() - Date.now()
+			if (ms > LONGRUN_VISIBLE_WINDOW_MS) {
+				setVisible(false)
+				return
+			}
+			setVisible(true)
+			const total = Math.floor(ms / 1000)
+			setTime({
+				d: Math.floor(total / 86400),
+				h: String(Math.floor(total / 3600) % 24).padStart(2, '0'),
+				m: String(Math.floor(total / 60) % 60).padStart(2, '0'),
+				s: String(total % 60).padStart(2, '0'),
+			})
+		}
+		tick()
+		const id = setInterval(tick, 1000)
+		return () => clearInterval(id)
+	}, [])
+
+	if (!visible) return null
+
+	return (
+		<div
+			style={{
+				position: 'absolute',
+				top: -30,
+				right: -10,
+				zIndex: 1,
+				transform: 'rotate(-4deg)',
+			}}
+		>
+			<div
+				style={{
+					fontFamily: 'var(--font-ibm-plex-mono)',
+					fontSize: 8,
+					letterSpacing: '0.16em',
+					color: 'var(--red)',
+					marginBottom: 6,
+					textAlign: 'center',
+				}}
+			>
+				<strong>LONGRUN · 1× PRO MONAT</strong>
+			</div>
+			<div
+				style={{
+					fontFamily: 'var(--font-ibm-plex-mono)',
+					border: '2px solid var(--black)',
+					borderRadius: 12,
+					padding: 'clamp(8px,1.1vw,14px) clamp(10px,1.4vw,16px)',
+					display: 'flex',
+					gap: 'clamp(8px,1.2vw,16px)',
+					background: 'var(--cobalt)',
+					boxShadow: '4px 4px 0 var(--red)',
+				}}
+			>
+				{[
+					{ val: time.d, lbl: 'TAGE' },
+					{ val: time.h, lbl: 'STD' },
+					{ val: time.m, lbl: 'MIN' },
+					{ val: time.s, lbl: 'SEK' },
+				].map(({ val, lbl }) => (
+					<div key={lbl} style={{ textAlign: 'center' }}>
+						<div
+							style={{
+								fontFamily: 'var(--font-anton)',
+								fontSize: 'clamp(16px,2.4vw,32px)',
+								lineHeight: 1,
+								fontVariantNumeric: 'tabular-nums',
+								color: 'var(--red)',
+							}}
+						>
+							{val}
+						</div>
+						<div
+							style={{
+								fontSize: 7,
+								letterSpacing: '0.16em',
+								color: 'rgba(244,241,235,0.7)',
+								marginTop: 3,
+							}}
+						>
+							{lbl}
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
+	)
+}
 
 /* ─── ScrollReveal ───────────────────────────────────────────────────────────── */
 function useReveal() {
@@ -1309,7 +1422,10 @@ export default function HomePage() {
 							Nächster Run ↓
 						</a>
 					</div>
-					<Countdown />
+					<div style={{ position: 'relative' }}>
+						<LongrunBadge />
+						<Countdown />
+					</div>
 				</div>
 			</header>
 
