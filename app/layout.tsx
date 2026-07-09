@@ -26,16 +26,31 @@ const ibmPlexMono = IBM_Plex_Mono({
   display: 'swap',
 })
 
+const SITE_TITLE = '11RUNCLUB Solothurn | Deine lokale Running Community'
+const SITE_DESCRIPTION =
+  'Der 11RUNCLUB in Solothurn bringt Läuferinnen und Läufer zusammen. Erfahre alles über unsere wöchentlichen Runs, Events und werde Teil der Community!'
+
 export const metadata: Metadata = {
-  title: '11RUNCLUB — Dein Runclub in Solothurn',
-  description:
-    'Jeden Dienstag 18:30 Uhr am SOL-ID, Klosterplatz 6. Keine Anmeldung nötig. Run together. Improve together. Enjoy together.',
+  metadataBase: new URL('https://www.11runclub.ch'),
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
   keywords: ['Runclub', 'Solothurn', 'Laufen', 'Running', '11RUNCLUB', 'Laufgruppe', 'Schweiz'],
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
-    title: '11RUNCLUB — Dein Runclub in Solothurn',
-    description: 'Jeden Dienstag 18:30 Uhr. Keine Anmeldung. Einfach kommen.',
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    url: 'https://www.11runclub.ch',
+    siteName: '11RUNCLUB',
     locale: 'de_CH',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
   },
 }
 
