@@ -10,6 +10,17 @@ import LandingHeroImg from '../reference/landing-hero.jpg'
 import SolothurnCityImg from '../reference/solothurn-city.jpg'
 
 /* ─── Countdown ─────────────────────────────────────────────────────────────── */
+// Ausgefallene Social Runs — Datum als 'YYYY-MM-DD' eintragen, der Countdown
+// überspringt diesen Termin automatisch und zählt zum Dienstag danach.
+const CANCELLED_TUESDAY_DATES = ['2026-07-28']
+
+function formatLocalDate(date: Date) {
+	const y = date.getFullYear()
+	const m = String(date.getMonth() + 1).padStart(2, '0')
+	const day = String(date.getDate()).padStart(2, '0')
+	return `${y}-${m}-${day}`
+}
+
 function nextTuesday() {
 	const now = new Date()
 	const d = new Date(now)
@@ -17,6 +28,11 @@ function nextTuesday() {
 	let add = (2 - d.getDay() + 7) % 7
 	if (add === 0 && d <= now) add = 7
 	d.setDate(d.getDate() + add)
+
+	while (CANCELLED_TUESDAY_DATES.includes(formatLocalDate(d))) {
+		d.setDate(d.getDate() + 7)
+	}
+
 	return d
 }
 
