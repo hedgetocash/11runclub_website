@@ -9,9 +9,7 @@ import LogoImg from '../reference/logo.jpg'
 const LINKS = [
   { href: '#next', label: 'Next Run' },
   { href: '#formats', label: 'Runs' },
-  // TEMPORÄR AUSGEBLENDET — The Maze ist noch nicht final bestätigt.
-  // Zum Wiedereinblenden einfach die Zeile unten einkommentieren:
-  // { href: '#events', label: 'Events' },
+  { href: '#events', label: 'Events' },
 ]
 
 export default function Nav() {

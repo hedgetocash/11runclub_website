@@ -6,9 +6,7 @@ const TICKER_ITEMS = [
   'NÄCHSTER RUN — DIENSTAG 18:30',
   'TREFFPUNKT: SOL-ID, KLOSTERPLATZ 6, 4500 SOLOTHURN',
   'KEINE ANMELDUNG NÖTIG',
-  // TEMPORÄR AUSGEBLENDET — The Maze ist noch nicht final bestätigt.
-  // Zum Wiedereinblenden einfach die Zeile unten einkommentieren:
-  // 'THE MAZE BY SAUCONY × 11RUNCLUB — 25.09.2026 — SAVE THE DATE',
+  'DIRTY LAPS BY 11RUNCLUB — 25.09.2026 — TICKETS LIVE',
   'ALLE LEVELS WILLKOMMEN',
   'HYDRATED BY PEAQ HYDRATION',
 ]

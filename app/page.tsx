@@ -528,10 +528,10 @@ function PinnedEvent() {
 				<section className="pin-event" ref={eventRef}>
 					<div className="pin-event__circle" aria-hidden="true" />
 					<div className="kicker kicker--chalk">
-						Save the Date — By Saucony × 11RUNCLUB
+						Tickets live — By 11RUNCLUB
 					</div>
 					<div className="pin-event__big">
-						The
+						Dirty
 						<br />
 						<span
 							style={{
@@ -539,7 +539,7 @@ function PinnedEvent() {
 								WebkitTextStroke: '2px var(--chalk)',
 							}}
 						>
-							Maze
+							Laps
 						</span>
 					</div>
 					<div className="pin-event__row">
@@ -553,9 +553,9 @@ function PinnedEvent() {
 						>
 							FR 25.09.2026 — ENTER TECHNIKWELT, DERENDINGEN
 							<br />
-							4ER-STAFFEL — RAUFS PARKDECK UND RUNTER
+							4×400M-STAFFEL — K.O.-TURNIER
 							<br />
-							120 LÄUFER:INNEN — INFOS FOLGEN
+							30 TEAMS — AB CHF 20.–
 						</div>
 						<Link
 							href="/enter-hillclimb"
@@ -1193,12 +1193,10 @@ const FAQ_ITEMS = [
 		q: 'Wie bleibe ich auf dem Laufenden?',
 		a: 'Am schnellsten erfährst du alles über Instagram und unseren WhatsApp-Community-Channel. Folge uns auf @11.runclub für die wöchentlichen Updates und komm in den WhatsApp-Chat, um keine Infos zu verpassen. Die Links dazu findest du direkt hier auf der Seite!',
 	},
-	// TEMPORÄR AUSGEBLENDET — The Maze ist noch nicht final bestätigt.
-	// Zum Wiedereinblenden einfach den Block unten einkommentieren:
-	// {
-	// 	q: 'Was ist The Maze?',
-	// 	a: 'Unser eigenes Rennen mit Saucony: ein 4er-Staffel-Hillclimb in der ENTER Technikwelt Derendingen, am 25.09.2026. Alle Details dazu findest du auf der Event-Seite.',
-	// },
+	{
+		q: 'Was ist Dirty Laps?',
+		a: 'Unser eigenes Rennen: eine 4×400m-Staffel im K.O.-Format, rauf aufs Parkdeck der ENTER Technikwelt Derendingen und wieder runter. Am 25.09.2026, max. 30 Teams. Alle Details und Tickets findest du auf der Event-Seite.',
+	},
 ]
 
 function FAQSection() {
@@ -1384,7 +1382,7 @@ export default function HomePage() {
 							flexShrink: 0,
 						}}
 					/>
-					<span></span>
+					<span>SOLOTHURN</span>
 					<span>SEIT 2025</span>
 				</div>
 
@@ -1664,10 +1662,8 @@ export default function HomePage() {
 				`}</style>
 			</section>
 
-			{/* ── Pinned Event ──
-			    TEMPORÄR AUSGEBLENDET — The Maze ist noch nicht final bestätigt.
-			    Zum Wiedereinblenden einfach die Zeile unten einkommentieren: */}
-			{/* <PinnedEvent /> */}
+			{/* ── Pinned Event ── */}
+			<PinnedEvent />
 
 			{/* ── Join ── */}
 			<section

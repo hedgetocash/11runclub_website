@@ -3,8 +3,12 @@
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { notFound } from 'next/navigation'
 import EnterBuildingImg from '../../reference/enter-building-cc-by-sa.jpg'
+
+const TICKET_URL =
+	'https://eventfrog.ch/de/p/sport-fitness/sonstige-veranstaltungen/dirty-laps-by-11runclub-7492980719297253257.html'
+const MAPS_URL =
+	'https://www.google.com/maps/search/?api=1&query=Gewerbestrasse+4%2C+4552+Derendingen'
 
 function Reveal({
 	children,
@@ -49,7 +53,7 @@ function Countdown() {
 	const [time, setTime] = useState({ d: '--', h: '--', m: '--', s: '--' })
 
 	useEffect(() => {
-		const target = new Date('2026-09-25T00:00:00')
+		const target = new Date('2026-09-25T18:30:00')
 		function tick() {
 			const ms = target.getTime() - Date.now()
 			if (ms <= 0) {
@@ -123,11 +127,61 @@ function Countdown() {
 	)
 }
 
-export default function EnterHillclimbPage() {
-	// TEMPORÄR AUSGEBLENDET — The Maze ist noch nicht final bestätigt.
-	// Zum Wiedereinblenden einfach die Zeile unten löschen/auskommentieren:
-	notFound()
+const RACE_FACTS = [
+	{ k: 'DATUM', v: 'Freitag, 25.09.2026' },
+	{ k: 'BEGINN', v: '18:30 Uhr' },
+	{
+		k: 'ORT',
+		v: 'Enter Technikwelt Solothurn',
+		sub: 'Gewerbestrasse 4, 4552 Derendingen',
+	},
+	{ k: 'FORMAT', v: '4×400m-Staffel', sub: 'Teams à 4 Personen' },
+	{
+		k: 'MODUS',
+		v: 'K.O.-Turnier',
+		sub: 'Immer 5 Teams gleichzeitig — Sieger kommen weiter',
+	},
+	{ k: 'TEAMS', v: 'Max. 30 Teams', sub: '120 Läufer:innen' },
+	{ k: 'PREIS', v: 'CHF 20.–/Person', sub: 'Team-Ticket à 4: CHF 80.–' },
+]
 
+const ABLAUF_STEPS = [
+	{
+		n: '01',
+		t: 'Qualifikation',
+		d: 'Alle 30 Teams treten in Fünfer-Gruppen gegeneinander an — rauf aufs Parkdeck und wieder runter. Immer 5 Teams gleichzeitig, die Sieger jeder Runde kommen weiter.',
+	},
+	{
+		n: '02',
+		t: 'Viertelfinal',
+		d: 'Die schnellsten Teams aus der Quali treffen wieder in 5er-Gruppen aufeinander. Das Feld wird kleiner, das Tempo höher.',
+	},
+	{
+		n: '03',
+		t: 'Halbfinal',
+		d: 'Nur noch die stärksten Teams sind übrig. Wer hier gewinnt, steht im grossen Final.',
+	},
+	{
+		n: '04',
+		t: 'Final',
+		d: 'Die letzten 5 von ursprünglich 30 Teams kämpfen um den Sieg — mit Sonnenuntergang über Derendingen als Kulisse.',
+	},
+]
+
+const NEBEN_DER_STRECKE = [
+	{ k: 'MUSIK', v: 'DJ-Set den ganzen Abend' },
+	{ k: 'GETRÄNKE', v: 'PEAQ Hydration — im Ticket inbegriffen' },
+	{ k: 'ESSEN', v: 'Vor Ort im Enter, kein Mindestkonsum' },
+	{ k: 'TESTING', v: 'Laufschuh-Testing mit Saucony' },
+	{ k: 'AUSSICHT', v: 'Zuschauer-Deck auf dem Dach — Sonnenuntergang beim Final' },
+	{ k: 'STARTNUMMER', v: 'Personalisiert, für jede:n Läufer:in' },
+	{
+		k: 'SIEGEREHRUNG',
+		v: 'Mit Preisen von Saucony, PEAQ und SOL-ID',
+	},
+]
+
+export default function EnterHillclimbPage() {
 	return (
 		<>
 			{/* ── Hero ── */}
@@ -239,7 +293,7 @@ export default function EnterHillclimbPage() {
 									display: 'inline-block',
 								}}
 							/>
-							SAVE THE DATE — UNSER RENNEN
+							TICKETS LIVE — UNSER RENNEN
 						</div>
 					</Reveal>
 
@@ -254,7 +308,7 @@ export default function EnterHillclimbPage() {
 								marginBottom: 16,
 							}}
 						>
-							<span style={{ color: 'var(--red)' }}>The</span>
+							<span style={{ color: 'var(--red)' }}>Dirty</span>
 							<br />
 							<span
 								style={{
@@ -262,7 +316,7 @@ export default function EnterHillclimbPage() {
 									WebkitTextStroke: '2px var(--chalk)',
 								}}
 							>
-								Maze
+								Laps
 							</span>
 						</h1>
 					</Reveal>
@@ -277,7 +331,7 @@ export default function EnterHillclimbPage() {
 								marginTop: 20,
 							}}
 						>
-							BY SAUCONY × 11RUNCLUB
+							BY 11RUNCLUB
 						</div>
 					</Reveal>
 
@@ -295,7 +349,7 @@ export default function EnterHillclimbPage() {
 						>
 							FR 25.09.2026 · ENTER TECHNIKWELT, DERENDINGEN
 							<br />
-							4ER-STAFFEL · RAUFS PARKDECK UND RUNTER
+							4×400M-STAFFEL · TEAMS À 4 · K.O.-TURNIER
 						</div>
 					</Reveal>
 
@@ -322,7 +376,7 @@ export default function EnterHillclimbPage() {
 									marginBottom: 12,
 								}}
 							>
-								STATUS — ANMELDUNG
+								STATUS — TICKETS
 							</div>
 							<div
 								style={{
@@ -333,7 +387,7 @@ export default function EnterHillclimbPage() {
 									color: 'var(--chalk)',
 								}}
 							>
-								Infos folgen.
+								CHF 20.–/Person
 							</div>
 							<p
 								style={{
@@ -345,10 +399,18 @@ export default function EnterHillclimbPage() {
 									lineHeight: 1.6,
 								}}
 							>
-								Details zu Anmeldung, Ablauf und Format werden
-								bekannt gegeben. Folge uns auf Instagram für
-								Updates.
+								Team-Ticket à 4 Plätze: CHF 80.–. Limitiert auf 30
+								Teams — sicher dir deins.
 							</p>
+							<a
+								href={TICKET_URL}
+								target="_blank"
+								rel="noopener noreferrer"
+								className="btn btn--solid"
+								style={{ marginTop: 20, display: 'inline-block' }}
+							>
+								Tickets sichern →
+							</a>
 						</div>
 					</Reveal>
 				</div>
@@ -395,7 +457,7 @@ export default function EnterHillclimbPage() {
 								marginBottom: 40,
 							}}
 						>
-							4er-Staffel.
+							4×400m-Staffel.
 							<br />
 							<span
 								style={{
@@ -412,21 +474,17 @@ export default function EnterHillclimbPage() {
 						style={{
 							display: 'grid',
 							gridTemplateColumns:
-								'repeat(auto-fit, minmax(260px, 1fr))',
+								'repeat(auto-fit, minmax(200px, 1fr))',
 							gap: 20,
 							marginBottom: 48,
 						}}
 					>
 						{[
-							{ k: 'DATUM', v: 'FR — 25.09.2026' },
-							{
-								k: 'ORT',
-								v: 'ENTER Technikwelt',
-								sub: 'Derendingen, CH',
-							},
-							{ k: 'FORMAT', v: '4er-Staffel' },
-							{ k: 'TEILNEHMENDE', v: '100+' },
-						].map(({ k, v, sub }, i) => (
+							{ k: 'TEAMS', v: '30' },
+							{ k: 'LÄUFER:INNEN', v: '120' },
+							{ k: 'STAFFEL', v: '4×400M' },
+							{ k: 'TICKET', v: 'CHF 20' },
+						].map(({ k, v }, i) => (
 							<Reveal key={k} delay={i * 60}>
 								<div
 									style={{
@@ -458,19 +516,6 @@ export default function EnterHillclimbPage() {
 									>
 										{v}
 									</div>
-									{sub && (
-										<div
-											style={{
-												fontFamily:
-													'var(--font-archivo)',
-												fontSize: 13,
-												color: 'rgba(244,241,235,0.6)',
-												marginTop: 6,
-											}}
-										>
-											{sub}
-										</div>
-									)}
 								</div>
 							</Reveal>
 						))}
@@ -484,15 +529,169 @@ export default function EnterHillclimbPage() {
 								color: 'rgba(244,241,235,0.85)',
 								maxWidth: 620,
 								fontFamily: 'var(--font-archivo)',
+								marginBottom: 44,
 							}}
 						>
-							Das Staffel-Rennen in 4er-Teams — rauf aufs Parkdeck
-							der ENTER Technikwelt Derendingen und wieder runter.
-							Die Rampen sind steil. Die Stimmung ist heiss. 120
-							Läufer:innen, organisiert vom 11RUNCLUB × Saucony.
-							Details zu Ablauf, Anmeldung und Startzeit folgen.
+							Vier Läufer:innen, ein Team, eine Staffel. Rauf aufs
+							Parkdeck der ENTER Technikwelt Derendingen und wieder
+							runter — so schnell es geht, so oft es dein Team
+							schafft. Klassisches K.O.-Format: Immer 5 Teams
+							gleichzeitig auf der Rampe, die Sieger jeder Runde
+							kommen weiter. Von der Qualifikation bis zum Final vor
+							Sonnenuntergang.
 						</p>
 					</Reveal>
+
+					<Reveal delay={320}>
+						<div
+							style={{
+								maxWidth: 640,
+								borderTop: '1.5px solid rgba(244,241,235,0.3)',
+								fontFamily: 'var(--font-ibm-plex-mono)',
+								fontSize: 13,
+								letterSpacing: '0.04em',
+							}}
+						>
+							{RACE_FACTS.map(({ k, v, sub }) => (
+								<div
+									key={k}
+									style={{
+										display: 'flex',
+										gap: 18,
+										padding: '16px 2px',
+										borderBottom:
+											'1.5px solid rgba(244,241,235,0.3)',
+									}}
+								>
+									<span
+										style={{
+											color: 'rgba(244,241,235,0.65)',
+											flex: '0 0 110px',
+											flexShrink: 0,
+										}}
+									>
+										{k}
+									</span>
+									<span
+										style={{
+											fontFamily: 'var(--font-archivo)',
+											letterSpacing: 'normal',
+										}}
+									>
+										{v}
+										{sub && (
+											<span
+												style={{
+													display: 'block',
+													color: 'rgba(244,241,235,0.6)',
+													fontSize: 12,
+													marginTop: 3,
+												}}
+											>
+												{sub}
+											</span>
+										)}
+									</span>
+								</div>
+							))}
+						</div>
+					</Reveal>
+				</div>
+			</section>
+
+			{/* ── Ablauf ── */}
+			<section
+				style={{
+					background: 'var(--chalk)',
+					padding: 'clamp(70px,10vw,130px) clamp(20px,4vw,56px)',
+				}}
+			>
+				<Reveal>
+					<div className="kicker">Ablauf</div>
+				</Reveal>
+				<Reveal delay={60}>
+					<h2
+						style={{
+							fontFamily: 'var(--font-anton)',
+							fontSize: 'clamp(44px,7vw,100px)',
+							lineHeight: 0.95,
+							textTransform: 'uppercase',
+							marginBottom: 20,
+						}}
+					>
+						K.O.-Turnier.
+						<br />
+						Vier Runden.
+					</h2>
+				</Reveal>
+				<Reveal delay={100}>
+					<p
+						style={{
+							fontFamily: 'var(--font-ibm-plex-mono)',
+							fontSize: 13,
+							letterSpacing: '0.05em',
+							color: 'var(--red)',
+							maxWidth: 560,
+							marginBottom: 56,
+							lineHeight: 1.7,
+						}}
+					>
+						→ Immer 5 Teams gleichzeitig auf der Rampe — die Sieger
+						jeder Runde qualifizieren sich für die nächste.
+					</p>
+				</Reveal>
+
+				<div
+					style={{
+						display: 'grid',
+						gridTemplateColumns:
+							'repeat(auto-fit, minmax(240px, 1fr))',
+						gap: 'clamp(20px,3vw,36px)',
+					}}
+				>
+					{ABLAUF_STEPS.map(({ n, t, d }, i) => (
+						<Reveal key={n} delay={i * 80}>
+							<div
+								style={{
+									borderTop: '2px solid var(--black)',
+									paddingTop: 20,
+								}}
+							>
+								<div
+									style={{
+										fontFamily: 'var(--font-ibm-plex-mono)',
+										fontSize: 13,
+										letterSpacing: '0.14em',
+										color: 'var(--ash)',
+										marginBottom: 14,
+									}}
+								>
+									{n}
+								</div>
+								<h3
+									style={{
+										fontFamily: 'var(--font-anton)',
+										fontSize: 'clamp(22px,2.4vw,30px)',
+										textTransform: 'uppercase',
+										lineHeight: 1.05,
+										marginBottom: 12,
+									}}
+								>
+									{t}
+								</h3>
+								<p
+									style={{
+										fontSize: 14.5,
+										lineHeight: 1.6,
+										color: '#444',
+										fontFamily: 'var(--font-archivo)',
+									}}
+								>
+									{d}
+								</p>
+							</div>
+						</Reveal>
+					))}
 				</div>
 			</section>
 
@@ -632,10 +831,131 @@ export default function EnterHillclimbPage() {
 				</div>
 			</section>
 
-			{/* ── CTA ── */}
+			{/* ── Neben der Strecke ── */}
+			<section
+				style={{
+					background: 'var(--chalk)',
+					padding: 'clamp(70px,10vw,130px) clamp(20px,4vw,56px)',
+				}}
+			>
+				<Reveal>
+					<div className="kicker">Neben der Strecke</div>
+				</Reveal>
+				<Reveal delay={60}>
+					<h2
+						style={{
+							fontFamily: 'var(--font-anton)',
+							fontSize: 'clamp(44px,7vw,100px)',
+							lineHeight: 0.95,
+							textTransform: 'uppercase',
+							marginBottom: 48,
+						}}
+					>
+						Mehr als
+						<br />
+						nur Rennen.
+					</h2>
+				</Reveal>
+
+				<div
+					style={{
+						maxWidth: 720,
+						borderTop: '1.5px solid rgba(13,12,11,0.15)',
+						fontFamily: 'var(--font-ibm-plex-mono)',
+						fontSize: 13,
+						letterSpacing: '0.04em',
+					}}
+				>
+					{NEBEN_DER_STRECKE.map(({ k, v }, i) => (
+						<Reveal key={k} delay={i * 40}>
+							<div
+								style={{
+									display: 'flex',
+									gap: 18,
+									padding: '18px 2px',
+									borderBottom:
+										'1.5px solid rgba(13,12,11,0.15)',
+								}}
+							>
+								<span
+									style={{
+										color: 'var(--ash)',
+										flex: '0 0 130px',
+										flexShrink: 0,
+									}}
+								>
+									{k}
+								</span>
+								<span
+									style={{
+										fontFamily: 'var(--font-archivo)',
+										letterSpacing: 'normal',
+										fontSize: 15,
+									}}
+								>
+									{v}
+								</span>
+							</div>
+						</Reveal>
+					))}
+				</div>
+			</section>
+
+			{/* ── Location ── */}
 			<section
 				style={{
 					background: 'var(--black)',
+					color: 'var(--chalk)',
+					padding: 'clamp(70px,10vw,130px) clamp(20px,4vw,56px)',
+				}}
+			>
+				<Reveal>
+					<div className="kicker kicker--chalk">Location</div>
+				</Reveal>
+				<Reveal delay={60}>
+					<h2
+						style={{
+							fontFamily: 'var(--font-anton)',
+							fontSize: 'clamp(36px,5.5vw,80px)',
+							lineHeight: 0.95,
+							textTransform: 'uppercase',
+							marginBottom: 24,
+						}}
+					>
+						Enter Technikwelt
+						<br />
+						Derendingen.
+					</h2>
+				</Reveal>
+				<Reveal delay={120}>
+					<p
+						style={{
+							fontFamily: 'var(--font-ibm-plex-mono)',
+							fontSize: 15,
+							letterSpacing: '0.05em',
+							color: 'rgba(244,241,235,0.75)',
+							marginBottom: 28,
+						}}
+					>
+						Gewerbestrasse 4, 4552 Derendingen
+					</p>
+				</Reveal>
+				<Reveal delay={160}>
+					<a
+						href={MAPS_URL}
+						target="_blank"
+						rel="noopener noreferrer"
+						className="btn btn--chalk"
+					>
+						In Google Maps öffnen →
+					</a>
+				</Reveal>
+			</section>
+
+			{/* ── Ticket CTA ── */}
+			<section
+				style={{
+					background: 'var(--red)',
 					color: 'var(--chalk)',
 					padding: 'clamp(70px,10vw,130px) clamp(20px,4vw,56px)',
 					textAlign: 'center',
@@ -646,7 +966,7 @@ export default function EnterHillclimbPage() {
 						className="kicker kicker--chalk"
 						style={{ justifyContent: 'center' }}
 					>
-						Auf dem Laufenden bleiben
+						Sichere dir dein Ticket
 					</div>
 				</Reveal>
 				<Reveal delay={80}>
@@ -659,27 +979,24 @@ export default function EnterHillclimbPage() {
 							marginBottom: 24,
 						}}
 					>
-						Infos kommen.
+						CHF 20.–
 						<br />
-						<span style={{ color: 'var(--red)' }}>
-							Versprochen.
-						</span>
+						Pro Person.
 					</h2>
 				</Reveal>
 				<Reveal delay={140}>
 					<p
 						style={{
 							fontSize: 17,
-							color: 'rgba(244,241,235,0.7)',
+							color: 'rgba(244,241,235,0.85)',
 							maxWidth: 480,
 							margin: '0 auto 40px',
 							lineHeight: 1.65,
 							fontFamily: 'var(--font-archivo)',
 						}}
 					>
-						Folge uns auf Instagram und tritt der WhatsApp-Community
-						bei. Alle Updates zu Anmeldung, Ablauf und Startzeit
-						kommen dort zuerst.
+						Team-Ticket à 4 Plätze: CHF 80.–. Limitiert auf 30 Teams
+						— schnapp dir deinen Platz auf der Rampe.
 					</p>
 				</Reveal>
 				<Reveal delay={200}>
@@ -692,20 +1009,20 @@ export default function EnterHillclimbPage() {
 						}}
 					>
 						<a
-							href="https://instagram.com/11.runclub"
-							target="_blank"
-							rel="noopener noreferrer"
-							className="btn btn--solid"
-						>
-							Instagram folgen →
-						</a>
-						<a
-							href="https://tr.ee/wKzGb4-Rug"
+							href={TICKET_URL}
 							target="_blank"
 							rel="noopener noreferrer"
 							className="btn btn--chalk"
 						>
-							WhatsApp Community
+							Tickets sichern →
+						</a>
+						<a
+							href="https://instagram.com/11.runclub"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="btn btn--chalk"
+						>
+							Instagram folgen →
 						</a>
 					</div>
 				</Reveal>
@@ -717,7 +1034,7 @@ export default function EnterHillclimbPage() {
 								fontFamily: 'var(--font-ibm-plex-mono)',
 								fontSize: 12,
 								letterSpacing: '0.15em',
-								color: 'var(--ash)',
+								color: 'rgba(244,241,235,0.7)',
 								textDecoration: 'none',
 							}}
 						>

@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'THE MAZE BY SAUCONY × 11RUNCLUB — 25.09.2026',
+  title: 'DIRTY LAPS BY 11RUNCLUB — 25.09.2026',
   description:
-    'The Maze by Saucony × 11RUNCLUB — das Staffel-Rennen aufs Parkdeck der ENTER Technikwelt Derendingen. 4er-Teams, 100+ Läufer:innen. 25.09.2026.',
+    'Dirty Laps by 11RUNCLUB — das 4×400m-Staffel-Rennen aufs Parkdeck der ENTER Technikwelt Derendingen. 30 Teams, 120 Läufer:innen, K.O.-Turnier. Tickets ab CHF 20.–.',
 }
 
 export default function EnterHillclimbLayout({ children }: { children: React.ReactNode }) {
